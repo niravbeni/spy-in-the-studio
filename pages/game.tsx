@@ -27,9 +27,11 @@ export default function GamePage() {
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState('');
   const [showInspiration, setShowInspiration] = useState(false);
+  const [roundNumber, setRoundNumber] = useState(1);
+  const [isPolling, setIsPolling] = useState(false);
   const router = useRouter();
 
-  const fetchRole = async () => {
+  const fetchRole = async (isBackgroundFetch = false) => {
     const playerId = localStorage.getItem('playerId');
 
     if (!playerId) {
@@ -37,16 +39,27 @@ export default function GamePage() {
       return;
     }
 
+    if (isBackgroundFetch) {
+      setIsPolling(true);
+    }
+
     try {
       const response = await fetch(`/api/get-role?playerId=${playerId}`);
       const data = await response.json();
 
       if (data.success) {
-        setRole({
+        const newRole = {
           isSpy: data.isSpy,
           prompt: data.prompt,
           message: data.message,
-        });
+        };
+        
+        // Check if this is a new round (prompt changed)
+        if (role?.prompt && data.prompt && role.prompt !== data.prompt) {
+          setRoundNumber(prev => prev + 1);
+        }
+        
+        setRole(newRole);
         // Set the player name from the server response (not localStorage)
         setPlayerName(data.playerName || 'Unknown Player');
       } else {
@@ -61,21 +74,22 @@ export default function GamePage() {
       setError('Network error. Please try again.');
     } finally {
       setIsLoading(false);
+      if (isBackgroundFetch) {
+        setIsPolling(false);
+      }
     }
   };
 
   useEffect(() => {
     fetchRole();
     
-    // Smart polling: only poll when we don't have a role yet (waiting for round to start)
+    // Continuous polling to detect new rounds and updates
     const interval = setInterval(() => {
-      if (!role?.prompt) {
-        fetchRole();
-      }
-    }, 2000);
+      fetchRole(true); // Background fetch
+    }, 3000); // Poll every 3 seconds for updates
     
     return () => clearInterval(interval);
-  }, [role?.prompt]);
+  }, []);
 
   const handleRefresh = () => {
     setIsLoading(true);
@@ -284,6 +298,11 @@ export default function GamePage() {
             <strong>{playerName}</strong>
           </div>
           
+          <div className="round-info">
+            <span className="round-number">Round {roundNumber}</span>
+            {isPolling && <span className="polling-indicator">🔄</span>}
+          </div>
+          
           <div className="role-reveal">
             {role.isSpy ? (
               <>
@@ -389,6 +408,34 @@ export default function GamePage() {
             border-radius: 20px;
             font-size: 0.9em;
             backdrop-filter: blur(10px);
+          }
+
+          .round-info {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: rgba(255,255,255,0.2);
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            backdrop-filter: blur(10px);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+          }
+
+          .round-number {
+            font-weight: 600;
+          }
+
+          .polling-indicator {
+            font-size: 0.8em;
+            animation: spin 2s linear infinite;
+          }
+
+          @keyframes spin {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
           }
 
           .role-reveal {

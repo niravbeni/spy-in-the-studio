@@ -203,19 +203,28 @@ export default function HostPage() {
 
         <style jsx>{`
           .container {
-            min-height: 100vh;
+            height: 100vh;
             padding: 20px;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-sizing: border-box;
           }
 
           .dashboard {
             max-width: 800px;
-            margin: 0 auto;
+            width: 100%;
+            max-height: calc(100vh - 40px);
             background: white;
             border-radius: 20px;
             padding: 20px;
             box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            box-sizing: border-box;
           }
 
           h1 {
@@ -224,6 +233,7 @@ export default function HostPage() {
             font-size: 2.2em;
             color: #333;
             font-weight: 700;
+            flex-shrink: 0;
           }
 
           .stats {
@@ -231,6 +241,7 @@ export default function HostPage() {
             grid-template-columns: 1fr 1fr;
             gap: 15px;
             margin-bottom: 25px;
+            flex-shrink: 0;
           }
 
           .stat-card {
@@ -259,17 +270,45 @@ export default function HostPage() {
 
           .players-section {
             margin-bottom: 25px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            min-height: 0;
           }
 
           .players-section h2 {
             margin: 0 0 15px 0;
             color: #333;
+            flex-shrink: 0;
           }
 
           .players-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
             gap: 10px;
+            overflow-y: auto;
+            padding-right: 5px;
+            flex: 1;
+            min-height: 0;
+          }
+
+          /* Scrollbar styling */
+          .players-grid::-webkit-scrollbar {
+            width: 8px;
+          }
+
+          .players-grid::-webkit-scrollbar-track {
+            background: #f1f1f1;
+            border-radius: 10px;
+          }
+
+          .players-grid::-webkit-scrollbar-thumb {
+            background: #667eea;
+            border-radius: 10px;
+          }
+
+          .players-grid::-webkit-scrollbar-thumb:hover {
+            background: #5a6fd8;
           }
 
           .player-card {
@@ -308,6 +347,7 @@ export default function HostPage() {
             padding: 15px;
             border-radius: 15px;
             margin-bottom: 25px;
+            flex-shrink: 0;
           }
 
           .round-info h3 {
@@ -331,6 +371,7 @@ export default function HostPage() {
           .controls {
             text-align: center;
             margin-bottom: 25px;
+            flex-shrink: 0;
           }
 
           .action-button {
@@ -381,6 +422,7 @@ export default function HostPage() {
             background: #fee;
             border-radius: 10px;
             text-align: center;
+            flex-shrink: 0;
           }
 
           .join-link {
@@ -388,6 +430,7 @@ export default function HostPage() {
             padding: 15px;
             border-radius: 15px;
             text-align: center;
+            flex-shrink: 0;
           }
 
           .join-link p {
@@ -404,9 +447,13 @@ export default function HostPage() {
           }
 
           @media (max-width: 768px) {
+            .container {
+              padding: 10px;
+            }
+            
             .dashboard {
               padding: 15px;
-              margin: 10px;
+              max-height: calc(100vh - 20px);
             }
             
             h1 {
@@ -455,12 +502,12 @@ export default function HostPage() {
           
           @media (max-width: 480px) {
             .container {
-              padding: 10px;
+              padding: 5px;
             }
             
             .dashboard {
               padding: 12px;
-              margin: 5px;
+              max-height: calc(100vh - 10px);
               border-radius: 15px;
             }
             
