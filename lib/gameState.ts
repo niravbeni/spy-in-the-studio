@@ -1,3 +1,5 @@
+import { supabase } from './supabase'
+
 export interface Player {
   id: string;
   name: string;
@@ -38,44 +40,105 @@ export const REDACTED_PROMPTS = [
   "How might we design a XXXX XXXX that doesn't use XXXX?",                 // communication tool that doesn't use words
 ];
 
-// Hot-reload resistant game state - survives Next.js development reloads
+// Constants for Supabase
+const GAME_STATE_ID = 'main-game';
+const TABLE_NAME = 'game_states';
+
+// Global object to persist state during hot reloads in development
 declare global {
-  // eslint-disable-next-line no-var
-  var __gameState: GameState | undefined;
+  var __spy_game_state: GameState | undefined;
 }
 
-// Initialize or get existing game state
-function initializeGameState(): GameState {
-  if (global.__gameState) {
-    console.log('🔄 REUSING EXISTING GAME STATE:', {
-      players: global.__gameState.players.length,
-      isRoundActive: global.__gameState.isRoundActive
-    });
-    return global.__gameState;
+// In-memory fallback for development when Supabase is not configured
+// Using global to persist through hot reloads
+function getMemoryState(): GameState {
+  if (!global.__spy_game_state) {
+    global.__spy_game_state = {
+      players: [],
+      currentPrompt: null,
+      currentPromptIndex: null,
+      spyId: null,
+      isRoundActive: false,
+    };
+  }
+  return global.__spy_game_state;
+}
+
+function setMemoryState(state: GameState): void {
+  global.__spy_game_state = state;
+}
+
+// Check if Supabase is properly configured
+function isSupabaseConfigured(): boolean {
+  return !!(supabase && process.env.NEXT_PUBLIC_SUPABASE_URL && process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY);
+}
+
+// Get game state from Supabase or memory fallback
+export async function getGameState(): Promise<GameState> {
+  if (!isSupabaseConfigured()) {
+    console.log('📝 Using in-memory storage (Supabase not configured)');
+    return getMemoryState();
   }
 
-  console.log('🆕 CREATING NEW GAME STATE');
-  const newState: GameState = {
-    players: [],
-    currentPrompt: null,
-    currentPromptIndex: null,
-    spyId: null,
-    isRoundActive: false,
-  };
+  try {
+    const { data, error } = await supabase!
+      .from(TABLE_NAME)
+      .select('data')
+      .eq('id', GAME_STATE_ID)
+      .single();
+
+    if (error && error.code !== 'PGRST116') { // PGRST116 = no rows found
+      console.log('Supabase error:', error);
+      return getMemoryState();
+    }
+
+    if (data && data.data) {
+      return data.data as GameState;
+    }
+
+    // Return default state if no data found
+    return {
+      players: [],
+      currentPrompt: null,
+      currentPromptIndex: null,
+      spyId: null,
+      isRoundActive: false,
+    };
+  } catch (error) {
+    console.log('Supabase error, using fallback:', error);
+    return getMemoryState();
+  }
+}
+
+// Save game state to Supabase or memory fallback
+async function saveGameState(state: GameState): Promise<void> {
+  if (!isSupabaseConfigured()) {
+    setMemoryState(state);
+    return;
+  }
+
+  try {
+    const { error } = await supabase!
+      .from(TABLE_NAME)
+      .upsert({
+        id: GAME_STATE_ID,
+        data: state,
+        updated_at: new Date().toISOString()
+      });
+
+    if (error) {
+      console.log('Supabase save error:', error);
+      setMemoryState(state); // Fallback to memory
+    }
+  } catch (error) {
+    console.log('Supabase save error, using fallback:', error);
+    setMemoryState(state);
+  }
+}
+
+export async function addPlayer(player: Player): Promise<void> {
+  const gameState = await getGameState();
   
-  global.__gameState = newState;
-  return newState;
-}
-
-// Get the persistent game state
-export const gameState = initializeGameState();
-
-// Sync state to global storage after changes
-function syncStateToGlobal(): void {
-  global.__gameState = gameState;
-}
-
-export function addPlayer(player: Player): void {
   const existingPlayerIndex = gameState.players.findIndex(p => p.id === player.id);
   
   if (existingPlayerIndex >= 0) {
@@ -86,10 +149,12 @@ export function addPlayer(player: Player): void {
     gameState.players.push(player);
   }
   
-  syncStateToGlobal();
+  await saveGameState(gameState);
 }
 
-export function startRound(): { prompt: string; spyId: string } {
+export async function startRound(): Promise<{ prompt: string; spyId: string }> {
+  const gameState = await getGameState();
+  
   if (gameState.players.length < 2) {
     throw new Error('Need at least 2 players to start a round');
   }
@@ -108,7 +173,7 @@ export function startRound(): { prompt: string; spyId: string } {
   gameState.spyId = selectedSpyId;
   gameState.isRoundActive = true;
 
-  syncStateToGlobal();
+  await saveGameState(gameState);
 
   return {
     prompt: selectedPrompt,
@@ -116,7 +181,9 @@ export function startRound(): { prompt: string; spyId: string } {
   };
 }
 
-export function getPlayerRole(playerId: string): { isSpy: boolean; prompt: string | null } {
+export async function getPlayerRole(playerId: string): Promise<{ isSpy: boolean; prompt: string | null }> {
+  const gameState = await getGameState();
+  
   if (!gameState.isRoundActive || gameState.currentPromptIndex === null) {
     return { isSpy: false, prompt: null };
   }
@@ -128,12 +195,14 @@ export function getPlayerRole(playerId: string): { isSpy: boolean; prompt: strin
   };
 }
 
-export function resetGame(): void {
-  gameState.players = [];
-  gameState.currentPrompt = null;
-  gameState.currentPromptIndex = null;
-  gameState.spyId = null;
-  gameState.isRoundActive = false;
+export async function resetGame(): Promise<void> {
+  const newState: GameState = {
+    players: [],
+    currentPrompt: null,
+    currentPromptIndex: null,
+    spyId: null,
+    isRoundActive: false,
+  };
   
-  syncStateToGlobal();
+  await saveGameState(newState);
 } 

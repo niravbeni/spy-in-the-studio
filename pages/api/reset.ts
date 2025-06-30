@@ -1,28 +1,34 @@
 import { NextApiRequest, NextApiResponse } from 'next';
-import { resetGame, gameState } from '../../lib/gameState';
+import { resetGame, getGameState } from '../../lib/gameState';
 
-export default function handler(req: NextApiRequest, res: NextApiResponse) {
+export default async function handler(req: NextApiRequest, res: NextApiResponse) {
   if (req.method !== 'POST') {
     return res.status(405).json({ message: 'Method not allowed' });
   }
 
-  console.log('🔄 RESETTING GAME STATE:', {
-    beforeReset: {
-      playerCount: gameState.players.length,
-      players: gameState.players.map(p => ({ id: p.id, name: p.name })),
-      isRoundActive: gameState.isRoundActive
-    }
-  });
-
   try {
-    resetGame();
+    // Get current state for debugging
+    const currentState = await getGameState();
+    
+    console.log('🔄 RESETTING GAME STATE:', {
+      beforeReset: {
+        playerCount: currentState.players.length,
+        players: currentState.players.map(p => ({ id: p.id, name: p.name })),
+        isRoundActive: currentState.isRoundActive
+      }
+    });
+
+    await resetGame();
+    
+    // Get state after reset
+    const newState = await getGameState();
     
     console.log('✅ GAME RESET COMPLETE');
 
     res.status(200).json({
       success: true,
       message: 'Game reset successfully',
-      playerCount: gameState.players.length,
+      playerCount: newState.players.length,
     });
   } catch (error) {
     console.log('❌ RESET ERROR:', error);

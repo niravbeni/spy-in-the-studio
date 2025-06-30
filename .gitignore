@@ -40,4 +40,4 @@ logs
 
 # Temporary folders
 tmp/
-temp/ 
+temp/ .env.local

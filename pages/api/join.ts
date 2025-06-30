@@ -1,16 +1,16 @@
 import { NextApiRequest, NextApiResponse } from 'next';
 import { v4 as uuidv4 } from 'uuid';
-import { addPlayer, gameState, Player } from '../../lib/gameState';
+import { addPlayer, getGameState, Player } from '../../lib/gameState';
 
-export default function handler(req: NextApiRequest, res: NextApiResponse) {
+export default async function handler(req: NextApiRequest, res: NextApiResponse) {
   if (req.method !== 'POST') {
     return res.status(405).json({ message: 'Method not allowed' });
   }
 
   const { name } = req.body;
 
-  if (!name || typeof name !== 'string' || name.trim().length === 0) {
-    return res.status(400).json({ message: 'Player name is required' });
+  if (!name || typeof name !== 'string') {
+    return res.status(400).json({ message: 'Name is required' });
   }
 
   try {
@@ -19,8 +19,9 @@ export default function handler(req: NextApiRequest, res: NextApiResponse) {
 
     console.log('👤 PLAYER JOINING:', { playerId, name });
 
-    addPlayer(player);
+    await addPlayer(player);
 
+    const gameState = await getGameState();
     console.log('👤 PLAYER JOINED - Total players:', gameState.players.length);
 
     res.status(200).json({

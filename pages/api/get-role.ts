@@ -1,7 +1,7 @@
 import { NextApiRequest, NextApiResponse } from 'next';
-import { getPlayerRole, gameState } from '../../lib/gameState';
+import { getPlayerRole, getGameState } from '../../lib/gameState';
 
-export default function handler(req: NextApiRequest, res: NextApiResponse) {
+export default async function handler(req: NextApiRequest, res: NextApiResponse) {
   if (req.method !== 'GET') {
     return res.status(405).json({ message: 'Method not allowed' });
   }
@@ -12,13 +12,15 @@ export default function handler(req: NextApiRequest, res: NextApiResponse) {
     return res.status(400).json({ message: 'Player ID is required' });
   }
 
-  console.log('🔍 GET ROLE REQUEST:', {
-    playerId,
-    totalPlayersStored: gameState.players.length,
-    storedPlayerIds: gameState.players.map(p => ({ id: p.id, name: p.name }))
-  });
-
   try {
+    const gameState = await getGameState();
+    
+    console.log('🔍 GET ROLE REQUEST:', {
+      playerId,
+      totalPlayersStored: gameState.players.length,
+      storedPlayerIds: gameState.players.map(p => ({ id: p.id, name: p.name }))
+    });
+
     // Find the player first
     const player = gameState.players.find(p => p.id === playerId);
     
@@ -36,7 +38,7 @@ export default function handler(req: NextApiRequest, res: NextApiResponse) {
 
     console.log('✅ PLAYER FOUND:', { id: player.id, name: player.name });
     
-    const role = getPlayerRole(playerId);
+    const role = await getPlayerRole(playerId);
     
     res.status(200).json({
       success: true,
