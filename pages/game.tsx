@@ -113,12 +113,13 @@ export default function GamePage() {
               align-items: center;
               justify-content: center;
               padding: 20px;
-              background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+              background: white;
               font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
             }
 
             .card {
-              background: white;
+              background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+              color: white;
               border-radius: 20px;
               padding: 40px;
               box-shadow: 0 20px 40px rgba(0,0,0,0.1);
@@ -130,8 +131,8 @@ export default function GamePage() {
             .spinner {
               width: 40px;
               height: 40px;
-              border: 4px solid #f3f3f3;
-              border-top: 4px solid #667eea;
+              border: 4px solid rgba(255,255,255,0.3);
+              border-top: 4px solid white;
               border-radius: 50%;
               animation: spin 1s linear infinite;
               margin: 0 auto 20px;
@@ -288,12 +289,13 @@ export default function GamePage() {
               align-items: center;
               justify-content: center;
               padding: 20px;
-              background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+              background: white;
               font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
             }
 
             .card {
-              background: white;
+              background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+              color: white;
               border-radius: 20px;
               padding: 40px;
               box-shadow: 0 20px 40px rgba(0,0,0,0.1);
@@ -303,11 +305,13 @@ export default function GamePage() {
             }
 
             .player-info {
-              background: #f8f9fa;
+              background: rgba(255,255,255,0.2);
               padding: 15px;
               border-radius: 10px;
               margin-top: 20px;
-              color: #667eea;
+              color: white;
+              backdrop-filter: blur(10px);
+              border: 1px solid rgba(255,255,255,0.3);
             }
           `}</style>
         </div>
