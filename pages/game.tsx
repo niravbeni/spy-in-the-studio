@@ -157,7 +157,7 @@ export default function GamePage() {
           <meta name="viewport" content="width=device-width, initial-scale=1" />
         </Head>
         <div className="container">
-          <div className="card error">
+          <div className="card">
             <h2>{isPlayerNotFound ? '🔄 Reconnect Needed' : '😞 Oops!'}</h2>
             <p>{error}</p>
             {isPlayerNotFound ? (
@@ -186,47 +186,79 @@ export default function GamePage() {
           </div>
           <style jsx>{`
             .container {
-              min-height: 100vh;
+              width: 100%;
+              height: 100vh;
+              height: -webkit-fill-available;
               display: flex;
               align-items: center;
               justify-content: center;
               padding: 20px;
-              background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+              background: white;
               font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+              overflow: hidden;
+              position: fixed;
+              top: 0;
+              left: 0;
+              right: 0;
+              bottom: 0;
+              -webkit-overflow-scrolling: touch;
+              overscroll-behavior: none;
+              touch-action: none;
             }
 
             .card {
-              background: white;
+              background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+              color: white;
               border-radius: 20px;
               padding: 40px;
               box-shadow: 0 20px 40px rgba(0,0,0,0.1);
               text-align: center;
               max-width: 400px;
               width: 100%;
+              max-height: calc(100vh - 40px);
+              max-height: calc(-webkit-fill-available - 40px);
+              overflow: hidden;
+              touch-action: none;
             }
 
             .action-button {
               padding: 12px 24px;
-              background: #667eea;
+              background: rgba(255,255,255,0.2);
               color: white;
-              border: none;
+              border: 2px solid rgba(255,255,255,0.3);
               border-radius: 25px;
               font-size: 1em;
               font-weight: 600;
               cursor: pointer;
               margin: 10px;
+              backdrop-filter: blur(10px);
+              transition: all 0.3s;
+            }
+
+            .action-button:hover {
+              background: rgba(255,255,255,0.3);
+              border-color: rgba(255,255,255,0.6);
+              transform: translateY(-2px);
             }
 
             .link-button {
               padding: 12px 24px;
-              background: transparent;
-              color: #667eea;
-              border: 2px solid #667eea;
+              background: rgba(255,255,255,0.1);
+              color: white;
+              border: 2px solid rgba(255,255,255,0.2);
               border-radius: 25px;
               font-size: 1em;
               font-weight: 600;
               cursor: pointer;
               margin: 10px;
+              backdrop-filter: blur(10px);
+              transition: all 0.3s;
+            }
+
+            .link-button:hover {
+              background: rgba(255,255,255,0.2);
+              border-color: rgba(255,255,255,0.4);
+              transform: translateY(-2px);
             }
           `}</style>
         </div>
