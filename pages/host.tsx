@@ -139,7 +139,7 @@ export default function HostPage() {
 
           <div className={`main-content${gameStatus.isRoundActive ? ' has-round' : ''}`}>
             <div className="players-column">
-              <div className="players-section">
+              <div className={`players-section${gameStatus.playerCount > 0 ? ' has-players' : ''}`}>
                 <h2>Players ({gameStatus.playerCount})</h2>
                 <div className="players-grid">
                   {gameStatus.players.map((player) => (
@@ -290,6 +290,13 @@ export default function HostPage() {
             overflow: hidden;
           }
 
+          .players-section.has-players {
+            background: rgba(255,255,255,0.05);
+            border-radius: 15px;
+            padding: 20px;
+            border: 1px solid rgba(255,255,255,0.1);
+          }
+
           .players-section h2 {
             margin: 0 0 15px 0;
             color: white;
@@ -300,34 +307,57 @@ export default function HostPage() {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
             gap: 10px;
-            overflow-y: auto;
-            overflow-x: hidden;
             flex: 1;
             min-height: 0;
             width: 100%;
             max-width: 100%;
-            padding-bottom: 10px;
-            padding-right: 5px;
-            -webkit-overflow-scrolling: touch;
             align-content: start;
           }
 
-          .players-grid::-webkit-scrollbar {
-            width: 6px;
+          .players-section.has-players .players-grid {
+            overflow-y: auto;
+            overflow-x: hidden;
+            padding-bottom: 10px;
+            padding-right: 5px;
+            -webkit-overflow-scrolling: touch;
+            border-radius: 10px;
+            position: relative;
           }
 
-          .players-grid::-webkit-scrollbar-track {
+          .players-section.has-players .players-grid::after {
+            content: '';
+            position: sticky;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 20px;
+            background: linear-gradient(transparent, rgba(255,255,255,0.05));
+            pointer-events: none;
+            border-radius: 0 0 10px 10px;
+          }
+
+          .players-section.has-players .players-grid::-webkit-scrollbar {
+            width: 8px;
+          }
+
+          .players-section.has-players .players-grid::-webkit-scrollbar-track {
             background: rgba(255,255,255,0.1);
-            border-radius: 3px;
+            border-radius: 4px;
+            margin: 5px 0;
           }
 
-          .players-grid::-webkit-scrollbar-thumb {
-            background: rgba(255,255,255,0.3);
-            border-radius: 3px;
+          .players-section.has-players .players-grid::-webkit-scrollbar-thumb {
+            background: rgba(255,255,255,0.4);
+            border-radius: 4px;
+            border: 1px solid rgba(255,255,255,0.2);
           }
 
-          .players-grid::-webkit-scrollbar-thumb:hover {
-            background: rgba(255,255,255,0.5);
+          .players-section.has-players .players-grid::-webkit-scrollbar-thumb:hover {
+            background: rgba(255,255,255,0.6);
+          }
+
+          .players-section.has-players .players-grid::-webkit-scrollbar-corner {
+            background: transparent;
           }
 
 
