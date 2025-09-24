@@ -704,6 +704,7 @@ export default function GamePage() {
             .modal-content {
               margin: 10px;
               max-height: 90vh;
+              box-shadow: none;
             }
 
             .modal-header {
