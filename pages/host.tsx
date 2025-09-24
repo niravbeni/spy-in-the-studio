@@ -699,6 +699,28 @@ export default function HostPage() {
               height: 100% !important;
             }
             
+            .players-section:not(.has-players) {
+              flex: 1 !important;
+              display: flex !important;
+              flex-direction: column !important;
+              height: 100% !important;
+              justify-content: flex-start !important;
+              align-items: stretch !important;
+            }
+            
+            .players-section:not(.has-players) .players-grid {
+              flex: 1 !important;
+              display: flex !important;
+              align-items: center !important;
+              justify-content: center !important;
+            }
+            
+            .players-section:not(.has-players) .empty-state {
+              color: rgba(255,255,255,0.7) !important;
+              font-size: 1.1em !important;
+              text-align: center !important;
+            }
+            
             .players-grid {
               display: flex !important;
               flex-direction: column !important;
@@ -824,6 +846,28 @@ export default function HostPage() {
               display: flex !important;
               flex-direction: column !important;
               height: 100% !important;
+            }
+            
+            .players-section:not(.has-players) {
+              flex: 1 !important;
+              display: flex !important;
+              flex-direction: column !important;
+              height: 100% !important;
+              justify-content: flex-start !important;
+              align-items: stretch !important;
+            }
+            
+            .players-section:not(.has-players) .players-grid {
+              flex: 1 !important;
+              display: flex !important;
+              align-items: center !important;
+              justify-content: center !important;
+            }
+            
+            .players-section:not(.has-players) .empty-state {
+              color: rgba(255,255,255,0.7) !important;
+              font-size: 1em !important;
+              text-align: center !important;
             }
             
             .players-grid {
