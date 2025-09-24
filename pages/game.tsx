@@ -376,15 +376,18 @@ export default function GamePage() {
 
         <style jsx>{`
           .container {
-            min-height: 100vh;
+            width: 100vw;
+            height: 100vh;
             display: flex;
             align-items: center;
             justify-content: center;
             padding: 20px;
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            overflow-x: hidden;
-            width: 100%;
-            max-width: 100vw;
+            overflow: hidden;
+            position: fixed;
+            top: 0;
+            left: 0;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
           }
 
           .card {
@@ -395,6 +398,8 @@ export default function GamePage() {
             max-width: 500px;
             width: 100%;
             position: relative;
+            max-height: calc(100vh - 40px);
+            overflow: hidden;
           }
 
           .prompt-card {
@@ -626,19 +631,17 @@ export default function GamePage() {
           @media (max-width: 768px) {
             .container {
               padding: 15px;
-              box-sizing: border-box;
-              overflow-x: hidden;
-              width: 100vw;
-              max-width: 100vw;
             }
 
             .card {
-              padding: 25px 20px;
+              padding: 20px 15px;
               margin: 0;
               max-width: calc(100vw - 30px);
               width: calc(100vw - 30px);
+              max-height: calc(100vh - 30px);
               border-radius: 15px;
-              box-sizing: border-box;
+              overflow-y: auto;
+              overflow-x: hidden;
             }
 
             .player-info, .round-info {
@@ -730,16 +733,14 @@ export default function GamePage() {
           @media (max-width: 480px) {
             .container {
               padding: 10px;
-              overflow-x: hidden;
-              width: 100vw;
-              max-width: 100vw;
             }
 
             .card {
-              padding: 20px 15px;
+              padding: 15px 10px;
               border-radius: 12px;
               max-width: calc(100vw - 20px);
               width: calc(100vw - 20px);
+              max-height: calc(100vh - 20px);
             }
 
             .role-icon {

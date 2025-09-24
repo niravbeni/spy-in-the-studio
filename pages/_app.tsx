@@ -22,9 +22,12 @@ export default function App({ Component, pageProps }: AppProps) {
           font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
             Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue,
             sans-serif;
-          overflow-x: hidden;
-          width: 100%;
-          max-width: 100vw;
+          overflow: hidden;
+          width: 100vw;
+          height: 100vh;
+          position: fixed;
+          top: 0;
+          left: 0;
         }
         
         a {

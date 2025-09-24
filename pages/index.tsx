@@ -118,16 +118,18 @@ export default function JoinPage() {
 
         <style jsx>{`
           .container {
-            min-height: 100vh;
+            width: 100vw;
+            height: 100vh;
             display: flex;
             align-items: center;
             justify-content: center;
             padding: 20px;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            overflow-x: hidden;
-            width: 100%;
-            max-width: 100vw;
+            overflow: hidden;
+            position: fixed;
+            top: 0;
+            left: 0;
           }
 
           .card {
@@ -138,6 +140,8 @@ export default function JoinPage() {
             text-align: center;
             max-width: 400px;
             width: 100%;
+            max-height: calc(100vh - 40px);
+            overflow: hidden;
           }
 
           h1 {
@@ -239,22 +243,20 @@ export default function JoinPage() {
           @media (max-width: 768px) {
             .container {
               padding: 15px;
-              box-sizing: border-box;
-              overflow-x: hidden;
-              width: 100vw;
-              max-width: 100vw;
             }
 
             .card {
-              padding: 30px 20px;
+              padding: 25px 20px;
               margin: 0;
               max-width: calc(100vw - 30px);
               width: calc(100vw - 30px);
+              max-height: calc(100vh - 30px);
               border-radius: 15px;
-              box-sizing: border-box;
               border: none;
               outline: none;
               -webkit-tap-highlight-color: transparent;
+              overflow-y: auto;
+              overflow-x: hidden;
             }
 
             .name-input {
@@ -285,16 +287,14 @@ export default function JoinPage() {
           @media (max-width: 480px) {
             .container {
               padding: 10px;
-              overflow-x: hidden;
-              width: 100vw;
-              max-width: 100vw;
             }
 
             .card {
-              padding: 25px 15px;
+              padding: 20px 15px;
               border-radius: 12px;
               max-width: calc(100vw - 20px);
               width: calc(100vw - 20px);
+              max-height: calc(100vh - 20px);
             }
             
             h1 {

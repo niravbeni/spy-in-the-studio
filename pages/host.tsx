@@ -203,6 +203,7 @@ export default function HostPage() {
 
         <style jsx>{`
           .container {
+            width: 100vw;
             height: 100vh;
             padding: 20px;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
@@ -211,9 +212,10 @@ export default function HostPage() {
             align-items: center;
             justify-content: center;
             box-sizing: border-box;
-            overflow-x: hidden;
-            width: 100%;
-            max-width: 100vw;
+            overflow: hidden;
+            position: fixed;
+            top: 0;
+            left: 0;
           }
 
           .dashboard {
@@ -289,33 +291,13 @@ export default function HostPage() {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
             gap: 10px;
-            overflow-y: auto;
-            overflow-x: hidden;
-            padding-right: 5px;
+            overflow: hidden;
             flex: 1;
             min-height: 0;
             width: 100%;
             max-width: 100%;
           }
 
-          /* Scrollbar styling */
-          .players-grid::-webkit-scrollbar {
-            width: 8px;
-          }
-
-          .players-grid::-webkit-scrollbar-track {
-            background: #f1f1f1;
-            border-radius: 10px;
-          }
-
-          .players-grid::-webkit-scrollbar-thumb {
-            background: #667eea;
-            border-radius: 10px;
-          }
-
-          .players-grid::-webkit-scrollbar-thumb:hover {
-            background: #5a6fd8;
-          }
 
           .player-card {
             background: #f8f9fa;
@@ -455,10 +437,6 @@ export default function HostPage() {
           @media (max-width: 768px) {
             .container {
               padding: 10px;
-              box-sizing: border-box;
-              overflow-x: hidden;
-              width: 100vw;
-              max-width: 100vw;
             }
             
             .dashboard {
@@ -467,7 +445,6 @@ export default function HostPage() {
               margin: 0;
               max-width: calc(100vw - 20px);
               width: calc(100vw - 20px);
-              box-sizing: border-box;
               border: none;
               outline: none;
               -webkit-tap-highlight-color: transparent;
@@ -490,7 +467,7 @@ export default function HostPage() {
             
             .players-grid {
               grid-template-columns: 1fr;
-              overflow-x: hidden;
+              overflow: hidden;
               width: 100%;
               max-width: 100%;
             }
@@ -539,19 +516,14 @@ export default function HostPage() {
           @media (max-width: 480px) {
             .container {
               padding: 5px;
-              box-sizing: border-box;
-              overflow-x: hidden;
-              width: 100vw;
-              max-width: 100vw;
             }
             
             .dashboard {
-              padding: 12px;
+              padding: 10px;
               max-height: calc(100vh - 10px);
               border-radius: 15px;
               max-width: calc(100vw - 10px);
               width: calc(100vw - 10px);
-              box-sizing: border-box;
             }
             
             h1 {
