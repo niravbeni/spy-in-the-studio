@@ -435,29 +435,33 @@ export default function HostPage() {
 
           @media (max-width: 768px) {
             .container {
+              position: static !important;
+              overflow: auto !important;
+              height: auto !important;
+              min-height: 100vh;
+              min-height: -webkit-fill-available;
+              touch-action: auto !important;
+              -webkit-overflow-scrolling: touch;
               padding: 10px;
               align-items: flex-start;
               padding-top: 20px;
-              overflow-y: auto;
-              overflow-x: hidden;
-              position: fixed;
-              height: 100vh;
-              height: -webkit-fill-available;
+              display: block;
             }
             
             .dashboard {
               padding: 15px;
-              max-height: none;
+              max-height: none !important;
               min-height: auto;
-              margin: 0 0 20px 0;
+              margin: 0 0 40px 0;
               max-width: calc(100% - 20px);
               width: calc(100% - 20px);
               border: none;
               outline: none;
               -webkit-tap-highlight-color: transparent;
-              overflow: visible;
-              touch-action: auto;
+              overflow: visible !important;
+              touch-action: auto !important;
               position: relative;
+              display: block;
             }
             
             h1 {
@@ -477,10 +481,11 @@ export default function HostPage() {
             
             .players-grid {
               grid-template-columns: 1fr;
-              overflow: visible;
+              overflow: visible !important;
               width: 100%;
               max-width: 100%;
-              margin-bottom: 20px;
+              margin-bottom: 30px;
+              display: grid;
             }
             
             .player-card {
@@ -526,25 +531,30 @@ export default function HostPage() {
           
           @media (max-width: 480px) {
             .container {
+              position: static !important;
+              overflow: auto !important;
+              height: auto !important;
+              min-height: 100vh;
+              min-height: -webkit-fill-available;
+              touch-action: auto !important;
+              -webkit-overflow-scrolling: touch;
               padding: 5px;
               padding-top: 15px;
-              overflow-y: auto;
-              overflow-x: hidden;
-              position: fixed;
-              height: 100vh;
-              height: -webkit-fill-available;
+              display: block;
             }
             
             .dashboard {
               padding: 10px;
-              max-height: none;
+              max-height: none !important;
               min-height: auto;
               border-radius: 15px;
               max-width: calc(100% - 10px);
               width: calc(100% - 10px);
-              margin: 0 0 20px 0;
-              overflow: visible;
+              margin: 0 0 40px 0;
+              overflow: visible !important;
+              touch-action: auto !important;
               position: relative;
+              display: block;
             }
             
             h1 {
