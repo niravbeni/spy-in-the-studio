@@ -434,65 +434,71 @@ export default function HostPage() {
 
 
           @media (max-width: 768px) {
-            html, body {
-              overflow: auto !important;
-              position: static !important;
-              height: auto !important;
-              -webkit-overflow-scrolling: touch !important;
-            }
-            
             .container {
-              position: static !important;
-              overflow: auto !important;
-              height: auto !important;
-              min-height: 100vh;
-              min-height: -webkit-fill-available;
-              touch-action: auto !important;
-              -webkit-overflow-scrolling: touch;
               padding: 10px;
-              align-items: flex-start;
-              padding-top: 20px;
-              display: block;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              overflow: hidden;
             }
             
             .dashboard {
-              padding: 15px;
-              max-height: none !important;
-              min-height: auto;
-              margin: 0 0 40px 0;
-              max-width: calc(100% - 20px);
+              height: calc(100vh - 20px);
+              height: calc(100dvh - 20px);
+              max-height: calc(100vh - 20px);
+              max-height: calc(100dvh - 20px);
               width: calc(100% - 20px);
-              border: none;
-              outline: none;
-              -webkit-tap-highlight-color: transparent;
-              overflow: visible !important;
-              touch-action: auto !important;
-              position: relative;
-              display: block;
+              max-width: calc(100% - 20px);
+              padding: 15px;
+              margin: 0;
+              display: flex;
+              flex-direction: column;
+              overflow: hidden;
+              box-sizing: border-box;
             }
             
             h1 {
               font-size: 1.8em;
               margin-bottom: 15px;
+              flex-shrink: 0;
             }
             
             .stats {
               grid-template-columns: 1fr;
               gap: 10px;
-              margin-bottom: 20px;
+              margin-bottom: 15px;
+              flex-shrink: 0;
+            }
+            
+            .controls {
+              flex-shrink: 0;
+              margin-top: 15px;
+            }
+            
+            .round-info, .prompt-card {
+              flex-shrink: 0;
+              margin-bottom: 10px;
             }
             
             .stat-number {
               font-size: 1.8em;
             }
             
+            .players-section {
+              flex: 1;
+              overflow-y: auto;
+              overflow-x: hidden;
+              -webkit-overflow-scrolling: touch;
+              margin: 15px 0;
+              min-height: 0;
+            }
+            
             .players-grid {
-              grid-template-columns: 1fr;
-              overflow: visible !important;
+              display: flex;
+              flex-direction: column;
+              gap: 10px;
               width: 100%;
-              max-width: 100%;
-              margin-bottom: 30px;
-              display: grid;
+              padding-bottom: 10px;
             }
             
             .player-card {
@@ -537,38 +543,55 @@ export default function HostPage() {
           }
           
           @media (max-width: 480px) {
-            html, body {
-              overflow: auto !important;
-              position: static !important;
-              height: auto !important;
-              -webkit-overflow-scrolling: touch !important;
-            }
-            
             .container {
-              position: static !important;
-              overflow: auto !important;
-              height: auto !important;
-              min-height: 100vh;
-              min-height: -webkit-fill-available;
-              touch-action: auto !important;
-              -webkit-overflow-scrolling: touch;
               padding: 5px;
-              padding-top: 15px;
-              display: block;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              overflow: hidden;
             }
             
             .dashboard {
-              padding: 10px;
-              max-height: none !important;
-              min-height: auto;
-              border-radius: 15px;
-              max-width: calc(100% - 10px);
+              height: calc(100vh - 10px);
+              height: calc(100dvh - 10px);
+              max-height: calc(100vh - 10px);
+              max-height: calc(100dvh - 10px);
               width: calc(100% - 10px);
-              margin: 0 0 40px 0;
-              overflow: visible !important;
-              touch-action: auto !important;
-              position: relative;
-              display: block;
+              max-width: calc(100% - 10px);
+              padding: 10px;
+              margin: 0;
+              display: flex;
+              flex-direction: column;
+              overflow: hidden;
+              box-sizing: border-box;
+              border-radius: 15px;
+            }
+            
+            .players-section {
+              flex: 1;
+              overflow-y: auto;
+              overflow-x: hidden;
+              -webkit-overflow-scrolling: touch;
+              margin: 10px 0;
+              min-height: 0;
+            }
+            
+            .players-grid {
+              display: flex;
+              flex-direction: column;
+              gap: 8px;
+              width: 100%;
+              padding-bottom: 10px;
+            }
+            
+            .controls {
+              flex-shrink: 0;
+              margin-top: 10px;
+            }
+            
+            .round-info, .prompt-card {
+              flex-shrink: 0;
+              margin-bottom: 8px;
             }
             
             h1 {
