@@ -290,6 +290,7 @@ export default function HostPage() {
             display: flex;
             flex-direction: column;
             min-height: 0;
+            overflow: hidden;
           }
 
           .players-section h2 {
@@ -300,13 +301,36 @@ export default function HostPage() {
 
           .players-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
             gap: 10px;
-            overflow: hidden;
+            overflow-y: auto;
+            overflow-x: hidden;
             flex: 1;
             min-height: 0;
             width: 100%;
             max-width: 100%;
+            padding-bottom: 10px;
+            padding-right: 5px;
+            -webkit-overflow-scrolling: touch;
+            align-content: start;
+          }
+
+          .players-grid::-webkit-scrollbar {
+            width: 6px;
+          }
+
+          .players-grid::-webkit-scrollbar-track {
+            background: rgba(255,255,255,0.1);
+            border-radius: 3px;
+          }
+
+          .players-grid::-webkit-scrollbar-thumb {
+            background: rgba(255,255,255,0.3);
+            border-radius: 3px;
+          }
+
+          .players-grid::-webkit-scrollbar-thumb:hover {
+            background: rgba(255,255,255,0.5);
           }
 
 
