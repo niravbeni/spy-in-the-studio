@@ -287,6 +287,7 @@ export default function HostPage() {
             display: flex;
             flex-direction: column;
             min-height: 0;
+            max-height: calc(100vh - 300px);
             overflow: hidden;
           }
 
@@ -322,6 +323,7 @@ export default function HostPage() {
             border-radius: 10px;
             position: relative;
             max-height: 100%;
+            min-height: 200px;
           }
           
           /* Desktop vertical list behavior */
@@ -563,7 +565,7 @@ export default function HostPage() {
             
             .controls {
               flex-shrink: 0;
-              margin-top: 10px;
+              margin-top: 0;
               display: flex;
               gap: 10px;
             }
@@ -722,11 +724,11 @@ export default function HostPage() {
             }
             
             .players-section {
-              flex: 2.5 !important;
+              flex: 1 !important;
               overflow-y: auto !important;
               overflow-x: hidden !important;
               -webkit-overflow-scrolling: touch !important;
-              margin: 6px 0 !important;
+              margin: 0 !important;
               min-height: 0 !important;
               max-height: none !important;
               display: flex !important;
@@ -746,7 +748,7 @@ export default function HostPage() {
             
             .controls {
               flex-shrink: 0;
-              margin-top: 6px;
+              margin-top: 0;
               display: flex;
               gap: 8px;
             }
