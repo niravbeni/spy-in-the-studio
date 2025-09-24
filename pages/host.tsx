@@ -328,11 +328,20 @@ export default function HostPage() {
           /* Desktop vertical list behavior */
           @media (min-width: 769px) {
             .players-section {
-              max-height: calc(100vh - 200px);
+              height: 400px;
+              max-height: 400px;
+              flex: none;
+            }
+            
+            .players-section.has-players {
+              height: 400px;
+              max-height: 400px;
             }
             
             .players-section.has-players .players-grid {
-              max-height: calc(100vh - 250px);
+              height: 340px;
+              max-height: 340px;
+              overflow-y: auto;
             }
           }
 
@@ -542,6 +551,7 @@ export default function HostPage() {
               flex-direction: column;
               gap: 0;
               min-height: 0;
+              height: 100%;
             }
             
             .main-content.has-round {
@@ -701,8 +711,9 @@ export default function HostPage() {
               flex: 1;
               display: flex;
               flex-direction: column;
-              gap: 6px;
+              gap: 0;
               min-height: 0;
+              height: 100%;
             }
             
             .main-content.has-round {
