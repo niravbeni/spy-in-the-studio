@@ -203,8 +203,9 @@ export default function HostPage() {
 
         <style jsx>{`
           .container {
-            width: 100vw;
+            width: 100%;
             height: 100vh;
+            height: -webkit-fill-available;
             padding: 20px;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
@@ -216,12 +217,18 @@ export default function HostPage() {
             position: fixed;
             top: 0;
             left: 0;
+            right: 0;
+            bottom: 0;
+            -webkit-overflow-scrolling: touch;
+            overscroll-behavior: none;
+            touch-action: none;
           }
 
           .dashboard {
             max-width: 800px;
             width: 100%;
             max-height: calc(100vh - 40px);
+            max-height: calc(-webkit-fill-available - 40px);
             background: white;
             border-radius: 20px;
             padding: 20px;
@@ -230,6 +237,7 @@ export default function HostPage() {
             flex-direction: column;
             overflow: hidden;
             box-sizing: border-box;
+            touch-action: none;
           }
 
           h1 {
@@ -442,9 +450,10 @@ export default function HostPage() {
             .dashboard {
               padding: 15px;
               max-height: calc(100vh - 20px);
+              max-height: calc(-webkit-fill-available - 20px);
               margin: 0;
-              max-width: calc(100vw - 20px);
-              width: calc(100vw - 20px);
+              max-width: calc(100% - 20px);
+              width: calc(100% - 20px);
               border: none;
               outline: none;
               -webkit-tap-highlight-color: transparent;
@@ -521,9 +530,10 @@ export default function HostPage() {
             .dashboard {
               padding: 10px;
               max-height: calc(100vh - 10px);
+              max-height: calc(-webkit-fill-available - 10px);
               border-radius: 15px;
-              max-width: calc(100vw - 10px);
-              width: calc(100vw - 10px);
+              max-width: calc(100% - 10px);
+              width: calc(100% - 10px);
             }
             
             h1 {

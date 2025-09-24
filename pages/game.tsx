@@ -376,8 +376,9 @@ export default function GamePage() {
 
         <style jsx>{`
           .container {
-            width: 100vw;
+            width: 100%;
             height: 100vh;
+            height: -webkit-fill-available;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -387,7 +388,12 @@ export default function GamePage() {
             position: fixed;
             top: 0;
             left: 0;
+            right: 0;
+            bottom: 0;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-overflow-scrolling: touch;
+            overscroll-behavior: none;
+            touch-action: none;
           }
 
           .card {
@@ -399,7 +405,9 @@ export default function GamePage() {
             width: 100%;
             position: relative;
             max-height: calc(100vh - 40px);
+            max-height: calc(-webkit-fill-available - 40px);
             overflow: hidden;
+            touch-action: none;
           }
 
           .prompt-card {
@@ -636,12 +644,13 @@ export default function GamePage() {
             .card {
               padding: 20px 15px;
               margin: 0;
-              max-width: calc(100vw - 30px);
-              width: calc(100vw - 30px);
+              max-width: calc(100% - 30px);
+              width: calc(100% - 30px);
               max-height: calc(100vh - 30px);
+              max-height: calc(-webkit-fill-available - 30px);
               border-radius: 15px;
-              overflow-y: auto;
-              overflow-x: hidden;
+              overflow: hidden;
+              touch-action: none;
             }
 
             .player-info, .round-info {
@@ -738,9 +747,10 @@ export default function GamePage() {
             .card {
               padding: 15px 10px;
               border-radius: 12px;
-              max-width: calc(100vw - 20px);
-              width: calc(100vw - 20px);
+              max-width: calc(100% - 20px);
+              width: calc(100% - 20px);
               max-height: calc(100vh - 20px);
+              max-height: calc(-webkit-fill-available - 20px);
             }
 
             .role-icon {
