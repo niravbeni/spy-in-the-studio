@@ -636,17 +636,17 @@ export default function HostPage() {
             }
             
             .players-column {
-              flex: 1;
-              display: flex;
-              flex-direction: column;
-              min-height: 0;
-              height: 100%;
+              flex: 1 !important;
+              display: flex !important;
+              flex-direction: column !important;
+              min-height: 0 !important;
+              height: 100% !important;
             }
             
             .main-content:not(.has-round) .players-column {
-              flex: 1;
-              max-width: 100%;
-              height: 100%;
+              flex: 1 !important;
+              max-width: 100% !important;
+              height: 100% !important;
             }
             
             .controls {
@@ -728,6 +728,10 @@ export default function HostPage() {
               border-radius: 8px !important;
               border: 1px solid rgba(255,255,255,0.2) !important;
               backdrop-filter: blur(10px) !important;
+              flex: 1 !important;
+              height: 100% !important;
+              min-height: 0 !important;
+              max-height: none !important;
             }
             
             .players-grid {
@@ -739,6 +743,13 @@ export default function HostPage() {
               overflow-y: auto !important;
               overflow-x: hidden !important;
               flex: 1 !important;
+              min-height: 0 !important;
+              height: 100% !important;
+            }
+            
+            .players-section.has-players .players-grid {
+              flex: 1 !important;
+              height: 100% !important;
               min-height: 0 !important;
             }
             
@@ -832,17 +843,17 @@ export default function HostPage() {
             }
             
             .players-column {
-              flex: 1;
-              display: flex;
-              flex-direction: column;
-              min-height: 0;
-              height: 100%;
+              flex: 1 !important;
+              display: flex !important;
+              flex-direction: column !important;
+              min-height: 0 !important;
+              height: 100% !important;
             }
             
             .main-content:not(.has-round) .players-column {
-              flex: 1;
-              max-width: 100%;
-              height: 100%;
+              flex: 1 !important;
+              max-width: 100% !important;
+              height: 100% !important;
             }
             
             .players-section {
@@ -886,6 +897,10 @@ export default function HostPage() {
               border-radius: 8px !important;
               border: 1px solid rgba(255,255,255,0.2) !important;
               backdrop-filter: blur(10px) !important;
+              flex: 1 !important;
+              height: 100% !important;
+              min-height: 0 !important;
+              max-height: none !important;
             }
             
             .players-grid {
@@ -898,11 +913,18 @@ export default function HostPage() {
               overflow-x: hidden !important;
               flex: 1 !important;
               min-height: 0 !important;
+              height: 100% !important;
+            }
+            
+            .players-section.has-players .players-grid {
+              flex: 1 !important;
+              height: 100% !important;
+              min-height: 0 !important;
             }
             
             .controls {
               flex-shrink: 0;
-              margin-top: 12px;
+              margin-top: 0;
               display: flex;
               gap: 8px;
             }
