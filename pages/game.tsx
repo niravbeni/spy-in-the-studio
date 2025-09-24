@@ -356,7 +356,6 @@ export default function GamePage() {
                 </button>
               </div>
               <div className="modal-body">
-                <p className="modal-intro">Use these questions to spark deeper discussions:</p>
                 <ul className="inspiration-list">
                   <li>What material would you prototype this with?</li>
                   <li>What sense (touch, taste, smell, etc.) really matters here?</li>
@@ -611,11 +610,6 @@ export default function GamePage() {
             padding: 15px 25px 20px;
           }
 
-          .modal-intro {
-            font-size: 1em;
-            margin-bottom: 15px;
-            opacity: 0.9;
-          }
 
           .inspiration-list {
             list-style: none;
@@ -714,20 +708,15 @@ export default function GamePage() {
             }
 
             .modal-header {
-              padding: 15px 20px 10px;
+              padding: 12px 15px 8px;
             }
 
             .modal-header h2 {
-              font-size: 1.2em;
+              font-size: 1.1em;
             }
 
             .modal-body {
-              padding: 12px 20px 15px;
-            }
-
-            .modal-intro {
-              font-size: 0.95em;
-              margin-bottom: 12px;
+              padding: 8px 15px 12px;
             }
 
             .inspiration-list li {
