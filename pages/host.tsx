@@ -137,36 +137,44 @@ export default function HostPage() {
             </div>
           </div>
 
-          <div className="players-section">
-            <h2>Players ({gameStatus.playerCount})</h2>
-            <div className="players-grid">
-              {gameStatus.players.map((player) => (
-                <div key={player.id} className="player-card">
-                  <span className="player-name">{player.name}</span>
-                  {gameStatus.isRoundActive && player.id === gameStatus.spyId && (
-                    <span className="spy-badge">🕵️ SPY</span>
+          <div className="main-content">
+            <div className="players-column">
+              <div className="players-section">
+                <h2>Players ({gameStatus.playerCount})</h2>
+                <div className="players-grid">
+                  {gameStatus.players.map((player) => (
+                    <div key={player.id} className="player-card">
+                      <span className="player-name">{player.name}</span>
+                      {gameStatus.isRoundActive && player.id === gameStatus.spyId && (
+                        <span className="spy-badge">🕵️ SPY</span>
+                      )}
+                    </div>
+                  ))}
+                  {gameStatus.playerCount === 0 && (
+                    <div className="empty-state">
+                      No players yet. Share the join link!
+                    </div>
                   )}
                 </div>
-              ))}
-              {gameStatus.playerCount === 0 && (
-                <div className="empty-state">
-                  No players yet. Share the join link!
-                </div>
+              </div>
+            </div>
+
+            <div className="round-column">
+              {gameStatus.isRoundActive && (
+                <>
+                  <div className="round-info">
+                    <h3>Round: {gameStatus.roundNumber}</h3>
+                  </div>
+                  <div className="prompt-card">
+                    <strong>Prompt:</strong> {gameStatus.currentPrompt}
+                  </div>
+                  <div className="spy-info">
+                    <strong>Spy:</strong> {spyName}
+                  </div>
+                </>
               )}
             </div>
           </div>
-
-          {gameStatus.isRoundActive && (
-            <div className="round-info">
-              <h3>Current Round: {gameStatus.roundNumber}</h3>
-              <div className="prompt-card">
-                <strong>Prompt:</strong> {gameStatus.currentPrompt}
-              </div>
-              <div className="spy-info">
-                <strong>Spy:</strong> {spyName}
-              </div>
-            </div>
-          )}
 
           <div className="controls">
             <button 
@@ -464,26 +472,65 @@ export default function HostPage() {
             }
             
             .stats {
-              grid-template-columns: 1fr;
-              gap: 10px;
+              grid-template-columns: 1fr 1fr;
+              gap: 8px;
               margin-bottom: 15px;
               flex-shrink: 0;
+            }
+            
+            .main-content {
+              flex: 1;
+              display: flex;
+              gap: 10px;
+              min-height: 0;
+            }
+            
+            .round-column {
+              flex: 1;
+              display: flex;
+              flex-direction: column;
+              gap: 8px;
+            }
+            
+            .players-column {
+              flex: 1;
+              display: flex;
+              flex-direction: column;
+              min-height: 0;
             }
             
             .controls {
               flex-shrink: 0;
               margin-top: 15px;
+              display: flex;
+              gap: 8px;
             }
             
             .round-info, .prompt-card {
               flex-shrink: 0;
-              margin-bottom: 10px;
+              margin-bottom: 0;
+              padding: 10px;
+              font-size: 0.85em;
+            }
+            
+            .prompt-card {
+              font-size: 0.8em;
+              line-height: 1.3;
+            }
+            
+            .spy-info {
+              font-size: 0.85em;
+              padding: 8px;
+              margin: 0;
+              background: rgba(255,255,255,0.15);
+              border-radius: 8px;
+              border: 1px solid rgba(255,255,255,0.2);
             }
             
             .players-section h2 {
               flex-shrink: 0 !important;
-              margin: 0 0 10px 0 !important;
-              font-size: 1.2em !important;
+              margin: 0 0 8px 0 !important;
+              font-size: 1.1em !important;
             }
             
             .stat-number {
@@ -521,10 +568,10 @@ export default function HostPage() {
             }
             
             .action-button {
-              width: 100%;
-              padding: 15px;
-              font-size: 1.2em;
-              margin: 5px 0;
+              flex: 1;
+              padding: 12px 8px;
+              font-size: 1em;
+              margin: 0;
               border: none;
               outline: none;
               -webkit-tap-highlight-color: transparent;
@@ -570,7 +617,7 @@ export default function HostPage() {
               max-height: calc(100dvh - 10px);
               width: calc(100% - 10px);
               max-width: calc(100% - 10px);
-              padding: 10px;
+              padding: 8px;
               margin: 0;
               display: flex;
               flex-direction: column;
@@ -579,12 +626,33 @@ export default function HostPage() {
               border-radius: 15px;
             }
             
+            .main-content {
+              flex: 1;
+              display: flex;
+              gap: 6px;
+              min-height: 0;
+            }
+            
+            .round-column {
+              flex: 1;
+              display: flex;
+              flex-direction: column;
+              gap: 6px;
+            }
+            
+            .players-column {
+              flex: 1;
+              display: flex;
+              flex-direction: column;
+              min-height: 0;
+            }
+            
             .players-section {
               flex: 1 !important;
               overflow-y: auto !important;
               overflow-x: hidden !important;
               -webkit-overflow-scrolling: touch !important;
-              margin: 10px 0 !important;
+              margin: 8px 0 !important;
               min-height: 0 !important;
               max-height: none !important;
               display: flex !important;
@@ -594,9 +662,9 @@ export default function HostPage() {
             .players-grid {
               display: flex !important;
               flex-direction: column !important;
-              gap: 8px !important;
+              gap: 6px !important;
               width: 100% !important;
-              padding-bottom: 10px !important;
+              padding-bottom: 8px !important;
               overflow: visible !important;
               flex: none !important;
               min-height: auto !important;
@@ -604,18 +672,43 @@ export default function HostPage() {
             
             .controls {
               flex-shrink: 0;
-              margin-top: 10px;
+              margin-top: 8px;
+              display: flex;
+              gap: 6px;
             }
             
             .round-info, .prompt-card {
               flex-shrink: 0;
-              margin-bottom: 8px;
+              margin-bottom: 0;
+              padding: 8px;
+              font-size: 0.8em;
+            }
+            
+            .prompt-card {
+              font-size: 0.75em;
+              line-height: 1.2;
+            }
+            
+            .spy-info {
+              font-size: 0.8em;
+              padding: 6px;
+              margin: 0;
+              background: rgba(255,255,255,0.15);
+              border-radius: 6px;
+              border: 1px solid rgba(255,255,255,0.2);
             }
             
             .players-section h2 {
               flex-shrink: 0 !important;
-              margin: 0 0 8px 0 !important;
-              font-size: 1.1em !important;
+              margin: 0 0 6px 0 !important;
+              font-size: 1em !important;
+            }
+            
+            .action-button {
+              flex: 1;
+              padding: 10px 6px;
+              font-size: 0.9em;
+              margin: 0;
             }
             
             h1 {
