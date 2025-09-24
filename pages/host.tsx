@@ -334,28 +334,33 @@ export default function HostPage() {
           }
 
           .round-info {
-            background: #e8f5e8;
+            background: rgba(255,255,255,0.15);
             padding: 15px;
             border-radius: 15px;
             margin-bottom: 25px;
             flex-shrink: 0;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.2);
           }
 
           .round-info h3 {
             margin: 0 0 15px 0;
-            color: #2c5330;
+            color: white;
           }
 
           .prompt-card {
-            background: white;
+            background: rgba(255,255,255,0.2);
             padding: 15px;
             border-radius: 10px;
             margin-bottom: 15px;
             font-size: 1.1em;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.3);
+            color: white;
           }
 
           .spy-info {
-            color: #2c5330;
+            color: white;
             font-weight: 500;
           }
 
