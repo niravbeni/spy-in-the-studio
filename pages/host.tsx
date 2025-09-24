@@ -467,7 +467,7 @@ export default function HostPage() {
 
           @media (max-width: 768px) {
             .container {
-              padding: 10px;
+              padding: 20px;
               display: flex;
               align-items: center;
               justify-content: center;
@@ -475,13 +475,13 @@ export default function HostPage() {
             }
             
             .dashboard {
-              height: calc(100vh - 20px);
-              height: calc(100dvh - 20px);
-              max-height: calc(100vh - 20px);
-              max-height: calc(100dvh - 20px);
-              width: calc(100% - 20px);
-              max-width: calc(100% - 20px);
-              padding: 15px;
+              height: calc(100vh - 40px);
+              height: calc(100dvh - 40px);
+              max-height: calc(100vh - 40px);
+              max-height: calc(100dvh - 40px);
+              width: calc(100% - 40px);
+              max-width: calc(100% - 40px);
+              padding: 20px;
               margin: 0;
               display: flex;
               flex-direction: column;
@@ -637,7 +637,7 @@ export default function HostPage() {
           
           @media (max-width: 480px) {
             .container {
-              padding: 5px;
+              padding: 15px;
               display: flex;
               align-items: center;
               justify-content: center;
@@ -645,13 +645,13 @@ export default function HostPage() {
             }
             
             .dashboard {
-              height: calc(100vh - 10px);
-              height: calc(100dvh - 10px);
-              max-height: calc(100vh - 10px);
-              max-height: calc(100dvh - 10px);
-              width: calc(100% - 10px);
-              max-width: calc(100% - 10px);
-              padding: 8px;
+              height: calc(100vh - 30px);
+              height: calc(100dvh - 30px);
+              max-height: calc(100vh - 30px);
+              max-height: calc(100dvh - 30px);
+              width: calc(100% - 30px);
+              max-width: calc(100% - 30px);
+              padding: 15px;
               margin: 0;
               display: flex;
               flex-direction: column;
