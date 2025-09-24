@@ -137,7 +137,7 @@ export default function HostPage() {
             </div>
           </div>
 
-          <div className="main-content">
+          <div className={`main-content${gameStatus.isRoundActive ? ' has-round' : ''}`}>
             <div className="players-column">
               <div className="players-section">
                 <h2>Players ({gameStatus.playerCount})</h2>
@@ -505,8 +505,13 @@ export default function HostPage() {
             .main-content {
               flex: 1;
               display: flex;
+              flex-direction: column;
               gap: 10px;
               min-height: 0;
+            }
+            
+            .main-content.has-round {
+              flex-direction: row;
             }
             
             .round-column {
@@ -521,6 +526,11 @@ export default function HostPage() {
               display: flex;
               flex-direction: column;
               min-height: 0;
+            }
+            
+            .main-content:not(.has-round) .players-column {
+              flex: 1;
+              max-width: 100%;
             }
             
             .controls {
@@ -653,8 +663,13 @@ export default function HostPage() {
             .main-content {
               flex: 1;
               display: flex;
+              flex-direction: column;
               gap: 6px;
               min-height: 0;
+            }
+            
+            .main-content.has-round {
+              flex-direction: row;
             }
             
             .round-column {
@@ -669,6 +684,11 @@ export default function HostPage() {
               display: flex;
               flex-direction: column;
               min-height: 0;
+            }
+            
+            .main-content:not(.has-round) .players-column {
+              flex: 1;
+              max-width: 100%;
             }
             
             .players-section {
