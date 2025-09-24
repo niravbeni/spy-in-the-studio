@@ -340,22 +340,37 @@ export default function HostPage() {
               flex-direction: column;
             }
             
+            h1 {
+              flex-shrink: 0;
+            }
+            
+            .stats {
+              flex-shrink: 0;
+            }
+            
             .players-section {
               flex: 1 !important;
               overflow: hidden;
               display: flex;
               flex-direction: column;
               min-height: 0;
+              margin-bottom: 0;
+            }
+            
+            .players-section.has-players {
+              margin-bottom: 0;
             }
             
             .players-section.has-players .players-grid {
               flex: 1;
               overflow-y: auto;
               overflow-x: hidden;
+              min-height: 0;
             }
             
             .controls {
               flex-shrink: 0;
+              margin-top: 20px;
             }
           }
 
@@ -543,7 +558,6 @@ export default function HostPage() {
               flex-direction: column;
               overflow: hidden;
               box-sizing: border-box;
-              justify-content: space-between;
             }
             
             h1 {
@@ -560,12 +574,13 @@ export default function HostPage() {
             }
             
             .main-content {
-              flex: 1;
+              flex: 1 !important;
               display: flex;
               flex-direction: column;
               gap: 0;
               min-height: 0;
               height: 100%;
+              overflow: hidden;
             }
             
             .main-content.has-round {
@@ -595,7 +610,7 @@ export default function HostPage() {
             
             .controls {
               flex-shrink: 0;
-              margin-top: 0;
+              margin-top: 15px;
               display: flex;
               gap: 10px;
             }
@@ -721,16 +736,16 @@ export default function HostPage() {
               overflow: hidden;
               box-sizing: border-box;
               border-radius: 15px;
-              justify-content: space-between;
             }
             
             .main-content {
-              flex: 1;
+              flex: 1 !important;
               display: flex;
               flex-direction: column;
               gap: 0;
               min-height: 0;
               height: 100%;
+              overflow: hidden;
             }
             
             .main-content.has-round {
@@ -784,7 +799,7 @@ export default function HostPage() {
             
             .controls {
               flex-shrink: 0;
-              margin-top: 0;
+              margin-top: 12px;
               display: flex;
               gap: 8px;
             }
