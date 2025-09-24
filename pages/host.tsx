@@ -207,7 +207,7 @@ export default function HostPage() {
             height: 100vh;
             height: -webkit-fill-available;
             padding: 20px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: white;
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
             display: flex;
             align-items: center;

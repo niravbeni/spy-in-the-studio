@@ -390,7 +390,7 @@ export default function GamePage() {
             left: 0;
             right: 0;
             bottom: 0;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: white;
             -webkit-overflow-scrolling: touch;
             overscroll-behavior: none;
             touch-action: none;
@@ -411,30 +411,31 @@ export default function GamePage() {
           }
 
           .prompt-card {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
+            background: #f8f9fa;
+            color: #333;
+            border: 2px solid #e9ecef;
           }
 
           .player-info {
             position: absolute;
             top: 20px;
             left: 20px;
-            background: rgba(255,255,255,0.2);
+            background: #667eea;
+            color: white;
             padding: 8px 15px;
             border-radius: 20px;
             font-size: 0.9em;
-            backdrop-filter: blur(10px);
           }
 
           .round-info {
             position: absolute;
             top: 20px;
             right: 20px;
-            background: rgba(255,255,255,0.2);
+            background: #667eea;
+            color: white;
             padding: 8px 15px;
             border-radius: 20px;
             font-size: 0.9em;
-            backdrop-filter: blur(10px);
             display: flex;
             align-items: center;
             gap: 8px;
@@ -560,14 +561,15 @@ export default function GamePage() {
           }
 
           .modal-content {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: white;
             border-radius: 20px;
             max-width: 500px;
             width: 100%;
             max-height: 90vh;
             overflow-y: auto;
-            color: white;
+            color: #333;
             box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+            border: 2px solid #e9ecef;
           }
 
           .modal-header {
@@ -575,7 +577,7 @@ export default function GamePage() {
             justify-content: space-between;
             align-items: center;
             padding: 20px 25px 10px;
-            border-bottom: 1px solid rgba(255,255,255,0.2);
+            border-bottom: 1px solid #e9ecef;
           }
 
           .modal-header h2 {
@@ -587,7 +589,7 @@ export default function GamePage() {
           .close-button {
             background: none;
             border: none;
-            color: white;
+            color: #333;
             font-size: 1.5em;
             cursor: pointer;
             padding: 5px;
@@ -601,7 +603,7 @@ export default function GamePage() {
           }
 
           .close-button:hover {
-            background: rgba(255,255,255,0.1);
+            background: #f8f9fa;
           }
 
           .modal-body {
@@ -621,19 +623,18 @@ export default function GamePage() {
           }
 
           .inspiration-list li {
-            background: rgba(255,255,255,0.1);
+            background: #f8f9fa;
             margin-bottom: 8px;
             padding: 10px 15px;
             border-radius: 8px;
             font-size: 0.9em;
             line-height: 1.3;
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255,255,255,0.1);
+            border: 1px solid #e9ecef;
             transition: background 0.2s ease;
           }
 
           .inspiration-list li:hover {
-            background: rgba(255,255,255,0.15);
+            background: #e9ecef;
           }
 
           @media (max-width: 768px) {
