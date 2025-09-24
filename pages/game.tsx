@@ -551,25 +551,23 @@ export default function GamePage() {
             left: 0;
             right: 0;
             bottom: 0;
-            background: rgba(0,0,0,0.7);
+            background: white;
             display: flex;
             align-items: center;
             justify-content: center;
             z-index: 2000;
             padding: 20px;
-            backdrop-filter: blur(5px);
           }
 
           .modal-content {
-            background: white;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
             border-radius: 20px;
             max-width: 500px;
             width: 100%;
             max-height: 90vh;
             overflow-y: auto;
-            color: #333;
             box-shadow: 0 20px 40px rgba(0,0,0,0.3);
-            border: 2px solid #e9ecef;
           }
 
           .modal-header {
@@ -577,7 +575,7 @@ export default function GamePage() {
             justify-content: space-between;
             align-items: center;
             padding: 20px 25px 10px;
-            border-bottom: 1px solid #e9ecef;
+            border-bottom: 1px solid rgba(255,255,255,0.2);
           }
 
           .modal-header h2 {
@@ -589,7 +587,7 @@ export default function GamePage() {
           .close-button {
             background: none;
             border: none;
-            color: #333;
+            color: white;
             font-size: 1.5em;
             cursor: pointer;
             padding: 5px;
@@ -603,7 +601,7 @@ export default function GamePage() {
           }
 
           .close-button:hover {
-            background: #f8f9fa;
+            background: rgba(255,255,255,0.2);
           }
 
           .modal-body {
@@ -618,18 +616,19 @@ export default function GamePage() {
           }
 
           .inspiration-list li {
-            background: #f8f9fa;
+            background: rgba(255,255,255,0.15);
             margin-bottom: 8px;
             padding: 10px 15px;
             border-radius: 8px;
             font-size: 0.9em;
             line-height: 1.3;
-            border: 1px solid #e9ecef;
+            border: 1px solid rgba(255,255,255,0.2);
             transition: background 0.2s ease;
+            backdrop-filter: blur(10px);
           }
 
           .inspiration-list li:hover {
-            background: #e9ecef;
+            background: rgba(255,255,255,0.25);
           }
 
           @media (max-width: 768px) {
@@ -724,7 +723,6 @@ export default function GamePage() {
               font-size: 0.85em;
               margin-bottom: 6px;
               line-height: 1.25;
-              border: none;
               outline: none;
               -webkit-tap-highlight-color: transparent;
             }
