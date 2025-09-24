@@ -434,6 +434,13 @@ export default function HostPage() {
 
 
           @media (max-width: 768px) {
+            html, body {
+              overflow: auto !important;
+              position: static !important;
+              height: auto !important;
+              -webkit-overflow-scrolling: touch !important;
+            }
+            
             .container {
               position: static !important;
               overflow: auto !important;
@@ -530,6 +537,13 @@ export default function HostPage() {
           }
           
           @media (max-width: 480px) {
+            html, body {
+              overflow: auto !important;
+              position: static !important;
+              height: auto !important;
+              -webkit-overflow-scrolling: touch !important;
+            }
+            
             .container {
               position: static !important;
               overflow: auto !important;
