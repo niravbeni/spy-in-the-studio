@@ -229,7 +229,8 @@ export default function HostPage() {
             width: 100%;
             max-height: calc(100vh - 40px);
             max-height: calc(-webkit-fill-available - 40px);
-            background: white;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
             border-radius: 20px;
             padding: 20px;
             box-shadow: 0 20px 40px rgba(0,0,0,0.1);
@@ -244,7 +245,7 @@ export default function HostPage() {
             text-align: center;
             margin: 0 0 20px 0;
             font-size: 2.2em;
-            color: #333;
+            color: white;
             font-weight: 700;
             flex-shrink: 0;
           }
@@ -258,16 +259,18 @@ export default function HostPage() {
           }
 
           .stat-card {
-            background: #f8f9fa;
+            background: rgba(255,255,255,0.15);
             padding: 15px;
             border-radius: 15px;
             text-align: center;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.2);
           }
 
           .stat-number {
             font-size: 2.2em;
             font-weight: bold;
-            color: #667eea;
+            color: white;
             margin-bottom: 5px;
           }
 
@@ -277,7 +280,7 @@ export default function HostPage() {
           }
 
           .stat-label {
-            color: #666;
+            color: rgba(255,255,255,0.8);
             font-weight: 500;
           }
 
@@ -291,7 +294,7 @@ export default function HostPage() {
 
           .players-section h2 {
             margin: 0 0 15px 0;
-            color: #333;
+            color: white;
             flex-shrink: 0;
           }
 
@@ -308,12 +311,14 @@ export default function HostPage() {
 
 
           .player-card {
-            background: #f8f9fa;
+            background: rgba(255,255,255,0.15);
             padding: 15px;
             border-radius: 10px;
             display: flex;
             justify-content: space-between;
             align-items: center;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.2);
           }
 
           .player-name {

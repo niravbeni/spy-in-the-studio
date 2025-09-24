@@ -139,7 +139,8 @@ export default function JoinPage() {
           }
 
           .card {
-            background: white;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
             border-radius: 20px;
             padding: 40px;
             box-shadow: 0 20px 40px rgba(0,0,0,0.1);
@@ -155,7 +156,7 @@ export default function JoinPage() {
           h1 {
             margin: 0 0 10px 0;
             font-size: 2.5em;
-            color: #333;
+            color: white;
             font-weight: 700;
           }
 
@@ -174,12 +175,13 @@ export default function JoinPage() {
           }
 
           .count-badge {
-            background: #667eea;
+            background: rgba(255,255,255,0.2);
             color: white;
             padding: 5px 12px;
             border-radius: 20px;
             font-weight: bold;
             font-size: 1.2em;
+            backdrop-filter: blur(10px);
           }
 
           .input-group {
@@ -189,38 +191,52 @@ export default function JoinPage() {
           .name-input {
             width: 100%;
             padding: 15px 20px;
-            border: 2px solid #eee;
+            border: 2px solid rgba(255,255,255,0.3);
             border-radius: 50px;
             font-size: 1.2em;
             text-align: center;
             outline: none;
             transition: border-color 0.3s;
+            background: rgba(255,255,255,0.1);
+            color: white;
+            backdrop-filter: blur(10px);
           }
 
           .name-input:focus {
-            border-color: #667eea;
+            border-color: rgba(255,255,255,0.8);
+            background: rgba(255,255,255,0.2);
+          }
+          
+          .name-input::placeholder {
+            color: rgba(255,255,255,0.7);
           }
 
           .join-button {
             width: 100%;
             padding: 15px;
-            background: #667eea;
+            background: rgba(255,255,255,0.2);
             color: white;
-            border: none;
+            border: 2px solid rgba(255,255,255,0.3);
             border-radius: 50px;
             font-size: 1.2em;
             font-weight: 600;
             cursor: pointer;
-            transition: background 0.3s;
+            transition: all 0.3s;
+            backdrop-filter: blur(10px);
           }
 
           .join-button:hover:not(:disabled) {
-            background: #5a6fd8;
+            background: rgba(255,255,255,0.3);
+            border-color: rgba(255,255,255,0.6);
+            transform: translateY(-2px);
           }
 
           .join-button:disabled {
-            background: #ccc;
+            background: rgba(255,255,255,0.1);
+            border-color: rgba(255,255,255,0.1);
+            color: rgba(255,255,255,0.5);
             cursor: not-allowed;
+            transform: none;
           }
 
           .error {
@@ -235,11 +251,11 @@ export default function JoinPage() {
           .host-link {
             margin-top: 30px;
             padding-top: 20px;
-            border-top: 1px solid #eee;
+            border-top: 1px solid rgba(255,255,255,0.2);
           }
 
           .host-link a {
-            color: #667eea;
+            color: rgba(255,255,255,0.8);
             text-decoration: none;
             font-weight: 500;
           }

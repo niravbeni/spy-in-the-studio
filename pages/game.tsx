@@ -411,27 +411,27 @@ export default function GamePage() {
           }
 
           .prompt-card {
-            background: #f8f9fa;
-            color: #333;
-            border: 2px solid #e9ecef;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
           }
 
           .player-info {
             position: absolute;
             top: 20px;
             left: 20px;
-            background: #667eea;
+            background: rgba(255,255,255,0.2);
             color: white;
             padding: 8px 15px;
             border-radius: 20px;
             font-size: 0.9em;
+            backdrop-filter: blur(10px);
           }
 
           .round-info {
             position: absolute;
             top: 20px;
             right: 20px;
-            background: #667eea;
+            background: rgba(255,255,255,0.2);
             color: white;
             padding: 8px 15px;
             border-radius: 20px;
@@ -439,6 +439,7 @@ export default function GamePage() {
             display: flex;
             align-items: center;
             gap: 8px;
+            backdrop-filter: blur(10px);
           }
 
           .round-number {
