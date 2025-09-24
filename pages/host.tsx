@@ -25,7 +25,6 @@ export default function HostPage() {
   const [isStarting, setIsStarting] = useState(false);
   const [isResetting, setIsResetting] = useState(false);
   const [error, setError] = useState('');
-  const [currentUrl, setCurrentUrl] = useState('');
 
   const fetchGameStatus = async () => {
     try {
@@ -106,10 +105,6 @@ export default function HostPage() {
     return () => clearInterval(interval);
   }, []);
 
-  // Set current URL after component mounts (client-side only)
-  useEffect(() => {
-    setCurrentUrl(window.location.origin);
-  }, []);
 
   const spyName = gameStatus.spyId ? 
     gameStatus.players.find(p => p.id === gameStatus.spyId)?.name : 
@@ -194,11 +189,6 @@ export default function HostPage() {
           </div>
 
           {error && <div className="error">{error}</div>}
-
-          <div className="join-link">
-            <p>Share this link with players:</p>
-            <code>{currentUrl}</code>
-          </div>
         </div>
 
         <style jsx>{`
@@ -426,42 +416,27 @@ export default function HostPage() {
             flex-shrink: 0;
           }
 
-          .join-link {
-            background: #f8f9fa;
-            padding: 15px;
-            border-radius: 15px;
-            text-align: center;
-            flex-shrink: 0;
-          }
-
-          .join-link p {
-            margin: 0 0 10px 0;
-            color: #666;
-          }
-
-          .join-link code {
-            background: #e9ecef;
-            padding: 8px 12px;
-            border-radius: 5px;
-            font-family: monospace;
-            word-break: break-all;
-          }
 
           @media (max-width: 768px) {
             .container {
               padding: 10px;
+              align-items: flex-start;
+              padding-top: 20px;
             }
             
             .dashboard {
               padding: 15px;
-              max-height: calc(100vh - 20px);
-              max-height: calc(-webkit-fill-available - 20px);
+              max-height: none;
+              min-height: calc(100vh - 40px);
               margin: 0;
               max-width: calc(100% - 20px);
               width: calc(100% - 20px);
               border: none;
               outline: none;
               -webkit-tap-highlight-color: transparent;
+              overflow-y: auto;
+              overflow-x: hidden;
+              touch-action: pan-y;
             }
             
             h1 {
@@ -507,7 +482,7 @@ export default function HostPage() {
               margin-left: 0;
             }
             
-            .round-info, .join-link {
+            .round-info {
               padding: 12px;
               border: none;
               outline: none;
@@ -530,12 +505,13 @@ export default function HostPage() {
           @media (max-width: 480px) {
             .container {
               padding: 5px;
+              padding-top: 15px;
             }
             
             .dashboard {
               padding: 10px;
-              max-height: calc(100vh - 10px);
-              max-height: calc(-webkit-fill-available - 10px);
+              max-height: none;
+              min-height: calc(100vh - 30px);
               border-radius: 15px;
               max-width: calc(100% - 10px);
               width: calc(100% - 10px);
@@ -552,12 +528,6 @@ export default function HostPage() {
               -webkit-tap-highlight-color: transparent;
             }
             
-            .join-link code {
-              font-size: 0.85em;
-              padding: 6px 8px;
-              border: none;
-              outline: none;
-            }
           }
         `}</style>
       </div>
