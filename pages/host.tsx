@@ -480,25 +480,37 @@ export default function HostPage() {
               margin-bottom: 10px;
             }
             
+            .players-section h2 {
+              flex-shrink: 0 !important;
+              margin: 0 0 10px 0 !important;
+              font-size: 1.2em !important;
+            }
+            
             .stat-number {
               font-size: 1.8em;
             }
             
             .players-section {
-              flex: 1;
-              overflow-y: auto;
-              overflow-x: hidden;
-              -webkit-overflow-scrolling: touch;
-              margin: 15px 0;
-              min-height: 0;
+              flex: 1 !important;
+              overflow-y: auto !important;
+              overflow-x: hidden !important;
+              -webkit-overflow-scrolling: touch !important;
+              margin: 15px 0 !important;
+              min-height: 0 !important;
+              max-height: none !important;
+              display: flex !important;
+              flex-direction: column !important;
             }
             
             .players-grid {
-              display: flex;
-              flex-direction: column;
-              gap: 10px;
-              width: 100%;
-              padding-bottom: 10px;
+              display: flex !important;
+              flex-direction: column !important;
+              gap: 10px !important;
+              width: 100% !important;
+              padding-bottom: 10px !important;
+              overflow: visible !important;
+              flex: none !important;
+              min-height: auto !important;
             }
             
             .player-card {
@@ -568,20 +580,26 @@ export default function HostPage() {
             }
             
             .players-section {
-              flex: 1;
-              overflow-y: auto;
-              overflow-x: hidden;
-              -webkit-overflow-scrolling: touch;
-              margin: 10px 0;
-              min-height: 0;
+              flex: 1 !important;
+              overflow-y: auto !important;
+              overflow-x: hidden !important;
+              -webkit-overflow-scrolling: touch !important;
+              margin: 10px 0 !important;
+              min-height: 0 !important;
+              max-height: none !important;
+              display: flex !important;
+              flex-direction: column !important;
             }
             
             .players-grid {
-              display: flex;
-              flex-direction: column;
-              gap: 8px;
-              width: 100%;
-              padding-bottom: 10px;
+              display: flex !important;
+              flex-direction: column !important;
+              gap: 8px !important;
+              width: 100% !important;
+              padding-bottom: 10px !important;
+              overflow: visible !important;
+              flex: none !important;
+              min-height: auto !important;
             }
             
             .controls {
@@ -592,6 +610,12 @@ export default function HostPage() {
             .round-info, .prompt-card {
               flex-shrink: 0;
               margin-bottom: 8px;
+            }
+            
+            .players-section h2 {
+              flex-shrink: 0 !important;
+              margin: 0 0 8px 0 !important;
+              font-size: 1.1em !important;
             }
             
             h1 {
