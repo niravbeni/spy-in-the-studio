@@ -80,7 +80,6 @@ export default function JoinPage() {
       <div className="container">
         <div className="card">
           <h1>🕵️ Spy in the Studio</h1>
-          <p className="subtitle">A creative party game for IDEO SASU sessions</p>
           
           <div className="player-count">
             <span className="count-badge">{playerCount}</span>
