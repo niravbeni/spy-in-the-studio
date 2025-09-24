@@ -405,14 +405,15 @@ export default function HostPage() {
           }
 
           .action-button {
-            padding: 12px 25px;
+            padding: 14px 28px;
             border: none;
-            border-radius: 50px;
+            border-radius: 12px;
             font-size: 1.1em;
             font-weight: 600;
             cursor: pointer;
             transition: background 0.3s;
             min-width: 140px;
+            height: auto;
           }
 
           .action-button.primary {
@@ -603,12 +604,14 @@ export default function HostPage() {
             
             .action-button {
               flex: 1;
-              padding: 12px 8px;
+              padding: 12px 16px;
               font-size: 1em;
               margin: 0;
               border: none;
               outline: none;
               -webkit-tap-highlight-color: transparent;
+              border-radius: 10px;
+              min-height: 44px;
             }
 
             .action-button.secondary {
@@ -750,9 +753,11 @@ export default function HostPage() {
             
             .action-button {
               flex: 1;
-              padding: 10px 6px;
+              padding: 12px 12px;
               font-size: 0.9em;
               margin: 0;
+              border-radius: 8px;
+              min-height: 40px;
             }
             
             h1 {
