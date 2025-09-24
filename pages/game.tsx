@@ -54,14 +54,11 @@ export default function GamePage() {
           message: data.message,
         };
         
-        // Check if this is a new round (prompt changed)
-        if (role?.prompt && data.prompt && role.prompt !== data.prompt) {
-          setRoundNumber(prev => prev + 1);
-        }
-        
         setRole(newRole);
         // Set the player name from the server response (not localStorage)
         setPlayerName(data.playerName || 'Unknown Player');
+        // Set round number from server response
+        setRoundNumber(data.roundNumber || 1);
       } else {
         // If player not found, show error but don't auto-redirect
         if (data.message?.includes('Player not found')) {

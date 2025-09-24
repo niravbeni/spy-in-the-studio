@@ -46,6 +46,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       prompt: role.prompt,
       message: role.isSpy ? 'You are the spy.' : role.prompt,
       playerName: player.name,
+      roundNumber: gameState.roundNumber || 1,
     });
   } catch (error) {
     console.log('💥 GET ROLE ERROR:', error);
