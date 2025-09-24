@@ -409,8 +409,17 @@ export default function HostPage() {
 
           .help-text {
             margin-top: 10px;
-            color: white;
+            color: white !important;
             font-size: 0.9em;
+            opacity: 0.9;
+          }
+          
+          .controls .help-text {
+            color: white !important;
+          }
+          
+          p.help-text {
+            color: white !important;
           }
 
           .error {
