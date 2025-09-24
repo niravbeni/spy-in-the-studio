@@ -193,9 +193,6 @@ export default function HostPage() {
               {isResetting ? 'Resetting...' : 'Reset Game'}
             </button>
             
-            {gameStatus.playerCount < 2 && !gameStatus.isRoundActive && (
-              <p className="help-text">Need at least 2 players to start</p>
-            )}
           </div>
 
           {error && <div className="error">{error}</div>}
@@ -440,20 +437,6 @@ export default function HostPage() {
             cursor: not-allowed;
           }
 
-          .help-text {
-            margin-top: 10px;
-            color: white !important;
-            font-size: 0.9em;
-            opacity: 0.9;
-          }
-          
-          .controls .help-text {
-            color: white !important;
-          }
-          
-          p.help-text {
-            color: white !important;
-          }
 
           .error {
             color: #e74c3c;
