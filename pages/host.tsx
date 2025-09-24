@@ -211,6 +211,9 @@ export default function HostPage() {
             align-items: center;
             justify-content: center;
             box-sizing: border-box;
+            overflow-x: hidden;
+            width: 100%;
+            max-width: 100vw;
           }
 
           .dashboard {
@@ -287,9 +290,12 @@ export default function HostPage() {
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
             gap: 10px;
             overflow-y: auto;
+            overflow-x: hidden;
             padding-right: 5px;
             flex: 1;
             min-height: 0;
+            width: 100%;
+            max-width: 100%;
           }
 
           /* Scrollbar styling */
@@ -450,13 +456,17 @@ export default function HostPage() {
             .container {
               padding: 10px;
               box-sizing: border-box;
+              overflow-x: hidden;
+              width: 100vw;
+              max-width: 100vw;
             }
             
             .dashboard {
               padding: 15px;
               max-height: calc(100vh - 20px);
               margin: 0;
-              max-width: 100%;
+              max-width: calc(100vw - 20px);
+              width: calc(100vw - 20px);
               box-sizing: border-box;
               border: none;
               outline: none;
@@ -480,6 +490,9 @@ export default function HostPage() {
             
             .players-grid {
               grid-template-columns: 1fr;
+              overflow-x: hidden;
+              width: 100%;
+              max-width: 100%;
             }
             
             .player-card {
@@ -527,13 +540,17 @@ export default function HostPage() {
             .container {
               padding: 5px;
               box-sizing: border-box;
+              overflow-x: hidden;
+              width: 100vw;
+              max-width: 100vw;
             }
             
             .dashboard {
               padding: 12px;
               max-height: calc(100vh - 10px);
               border-radius: 15px;
-              max-width: 100%;
+              max-width: calc(100vw - 10px);
+              width: calc(100vw - 10px);
               box-sizing: border-box;
             }
             

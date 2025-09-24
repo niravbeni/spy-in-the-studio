@@ -382,6 +382,9 @@ export default function GamePage() {
             justify-content: center;
             padding: 20px;
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            overflow-x: hidden;
+            width: 100%;
+            max-width: 100vw;
           }
 
           .card {
@@ -624,12 +627,16 @@ export default function GamePage() {
             .container {
               padding: 15px;
               box-sizing: border-box;
+              overflow-x: hidden;
+              width: 100vw;
+              max-width: 100vw;
             }
 
             .card {
               padding: 25px 20px;
               margin: 0;
-              max-width: 100%;
+              max-width: calc(100vw - 30px);
+              width: calc(100vw - 30px);
               border-radius: 15px;
               box-sizing: border-box;
             }
@@ -723,11 +730,16 @@ export default function GamePage() {
           @media (max-width: 480px) {
             .container {
               padding: 10px;
+              overflow-x: hidden;
+              width: 100vw;
+              max-width: 100vw;
             }
 
             .card {
               padding: 20px 15px;
               border-radius: 12px;
+              max-width: calc(100vw - 20px);
+              width: calc(100vw - 20px);
             }
 
             .role-icon {

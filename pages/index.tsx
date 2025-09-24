@@ -125,6 +125,9 @@ export default function JoinPage() {
             padding: 20px;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            overflow-x: hidden;
+            width: 100%;
+            max-width: 100vw;
           }
 
           .card {
@@ -237,12 +240,16 @@ export default function JoinPage() {
             .container {
               padding: 15px;
               box-sizing: border-box;
+              overflow-x: hidden;
+              width: 100vw;
+              max-width: 100vw;
             }
 
             .card {
               padding: 30px 20px;
               margin: 0;
-              max-width: 100%;
+              max-width: calc(100vw - 30px);
+              width: calc(100vw - 30px);
               border-radius: 15px;
               box-sizing: border-box;
               border: none;
@@ -278,11 +285,16 @@ export default function JoinPage() {
           @media (max-width: 480px) {
             .container {
               padding: 10px;
+              overflow-x: hidden;
+              width: 100vw;
+              max-width: 100vw;
             }
 
             .card {
               padding: 25px 15px;
               border-radius: 12px;
+              max-width: calc(100vw - 20px);
+              width: calc(100vw - 20px);
             }
             
             h1 {
