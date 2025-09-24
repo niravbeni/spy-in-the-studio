@@ -287,7 +287,6 @@ export default function HostPage() {
             display: flex;
             flex-direction: column;
             min-height: 0;
-            max-height: calc(100vh - 300px);
             overflow: hidden;
           }
 
@@ -328,8 +327,12 @@ export default function HostPage() {
           
           /* Desktop vertical list behavior */
           @media (min-width: 769px) {
+            .players-section {
+              max-height: calc(100vh - 200px);
+            }
+            
             .players-section.has-players .players-grid {
-              max-height: calc(100vh - 400px);
+              max-height: calc(100vh - 250px);
             }
           }
 
@@ -517,6 +520,7 @@ export default function HostPage() {
               flex-direction: column;
               overflow: hidden;
               box-sizing: border-box;
+              justify-content: space-between;
             }
             
             h1 {
@@ -690,6 +694,7 @@ export default function HostPage() {
               overflow: hidden;
               box-sizing: border-box;
               border-radius: 15px;
+              justify-content: space-between;
             }
             
             .main-content {
