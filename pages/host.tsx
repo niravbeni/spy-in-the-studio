@@ -305,7 +305,7 @@ export default function HostPage() {
 
           .players-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
             gap: 10px;
             flex: 1;
             min-height: 0;
@@ -322,6 +322,15 @@ export default function HostPage() {
             -webkit-overflow-scrolling: touch;
             border-radius: 10px;
             position: relative;
+            max-height: 100%;
+          }
+          
+          /* Ensure proper grid behavior with many players */
+          @media (min-width: 769px) {
+            .players-section.has-players .players-grid {
+              grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+              max-height: calc(100vh - 400px);
+            }
           }
 
           .players-section.has-players .players-grid::after {
@@ -549,9 +558,9 @@ export default function HostPage() {
             
             .controls {
               flex-shrink: 0;
-              margin-top: 15px;
+              margin-top: 10px;
               display: flex;
-              gap: 8px;
+              gap: 10px;
             }
             
             .round-info, .prompt-card {
@@ -586,11 +595,11 @@ export default function HostPage() {
             }
             
             .players-section {
-              flex: 1 !important;
+              flex: 2 !important;
               overflow-y: auto !important;
               overflow-x: hidden !important;
               -webkit-overflow-scrolling: touch !important;
-              margin: 15px 0 !important;
+              margin: 10px 0 !important;
               min-height: 0 !important;
               max-height: none !important;
               display: flex !important;
@@ -617,14 +626,14 @@ export default function HostPage() {
             
             .action-button {
               flex: 1;
-              padding: 12px 16px;
-              font-size: 1em;
+              padding: 16px 20px;
+              font-size: 1.1em;
               margin: 0;
               border: none;
               outline: none;
               -webkit-tap-highlight-color: transparent;
               border-radius: 10px;
-              min-height: 44px;
+              min-height: 52px;
             }
 
             .action-button.secondary {
@@ -708,11 +717,11 @@ export default function HostPage() {
             }
             
             .players-section {
-              flex: 1 !important;
+              flex: 2.5 !important;
               overflow-y: auto !important;
               overflow-x: hidden !important;
               -webkit-overflow-scrolling: touch !important;
-              margin: 8px 0 !important;
+              margin: 6px 0 !important;
               min-height: 0 !important;
               max-height: none !important;
               display: flex !important;
@@ -732,9 +741,9 @@ export default function HostPage() {
             
             .controls {
               flex-shrink: 0;
-              margin-top: 8px;
+              margin-top: 6px;
               display: flex;
-              gap: 6px;
+              gap: 8px;
             }
             
             .round-info, .prompt-card {
@@ -766,11 +775,11 @@ export default function HostPage() {
             
             .action-button {
               flex: 1;
-              padding: 12px 12px;
-              font-size: 0.9em;
+              padding: 14px 16px;
+              font-size: 1em;
               margin: 0;
               border-radius: 8px;
-              min-height: 40px;
+              min-height: 48px;
             }
             
             h1 {
