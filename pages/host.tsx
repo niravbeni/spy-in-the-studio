@@ -651,7 +651,7 @@ export default function HostPage() {
             
             .controls {
               flex-shrink: 0;
-              margin-top: 15px;
+              margin-top: 0;
               display: flex;
               gap: 10px;
             }
@@ -692,6 +692,7 @@ export default function HostPage() {
               overflow: hidden !important;
               -webkit-overflow-scrolling: touch !important;
               margin: 0 !important;
+              padding: 0 !important;
               min-height: 0 !important;
               max-height: none !important;
               display: flex !important;
@@ -719,6 +720,14 @@ export default function HostPage() {
               color: rgba(255,255,255,0.7) !important;
               font-size: 1.1em !important;
               text-align: center !important;
+            }
+            
+            .players-section.has-players {
+              padding: 15px !important;
+              background: rgba(255,255,255,0.15) !important;
+              border-radius: 8px !important;
+              border: 1px solid rgba(255,255,255,0.2) !important;
+              backdrop-filter: blur(10px) !important;
             }
             
             .players-grid {
@@ -841,6 +850,7 @@ export default function HostPage() {
               overflow: hidden !important;
               -webkit-overflow-scrolling: touch !important;
               margin: 0 !important;
+              padding: 0 !important;
               min-height: 0 !important;
               max-height: none !important;
               display: flex !important;
@@ -868,6 +878,14 @@ export default function HostPage() {
               color: rgba(255,255,255,0.7) !important;
               font-size: 1em !important;
               text-align: center !important;
+            }
+            
+            .players-section.has-players {
+              padding: 12px !important;
+              background: rgba(255,255,255,0.15) !important;
+              border-radius: 8px !important;
+              border: 1px solid rgba(255,255,255,0.2) !important;
+              backdrop-filter: blur(10px) !important;
             }
             
             .players-grid {
