@@ -621,6 +621,65 @@ export default function GamePage() {
           }
 
           @media (max-width: 768px) {
+            .container {
+              padding: 15px;
+              box-sizing: border-box;
+            }
+
+            .card {
+              padding: 25px 20px;
+              margin: 0;
+              max-width: 100%;
+              border-radius: 15px;
+              box-sizing: border-box;
+            }
+
+            .player-info, .round-info {
+              position: relative;
+              top: auto;
+              left: auto;
+              right: auto;
+              margin-bottom: 15px;
+              display: inline-block;
+              margin-right: 10px;
+            }
+
+            .round-info {
+              margin-right: 0;
+            }
+
+            .role-reveal {
+              margin-top: 20px;
+            }
+
+            .role-icon {
+              font-size: 3em;
+              margin-bottom: 15px;
+            }
+
+            h1 {
+              font-size: 2em;
+              margin-bottom: 15px;
+            }
+
+            .prompt-text {
+              padding: 20px;
+              font-size: 1.1em;
+              margin: 15px 0;
+              border: none;
+              outline: none;
+              -webkit-tap-highlight-color: transparent;
+            }
+
+            .spy-prompt {
+              border: 2px dashed rgba(255,255,255,0.4);
+            }
+
+            .instruction {
+              font-size: 1em;
+              margin-top: 15px;
+            }
+
             .inspiration-button {
               bottom: 20px;
               right: 20px;
@@ -655,6 +714,39 @@ export default function GamePage() {
               font-size: 0.85em;
               margin-bottom: 6px;
               line-height: 1.25;
+              border: none;
+              outline: none;
+              -webkit-tap-highlight-color: transparent;
+            }
+          }
+
+          @media (max-width: 480px) {
+            .container {
+              padding: 10px;
+            }
+
+            .card {
+              padding: 20px 15px;
+              border-radius: 12px;
+            }
+
+            .role-icon {
+              font-size: 2.5em;
+            }
+
+            h1 {
+              font-size: 1.8em;
+            }
+
+            .prompt-text {
+              padding: 15px;
+              font-size: 1em;
+            }
+
+            .player-info, .round-info {
+              font-size: 0.8em;
+              padding: 6px 12px;
+              margin-bottom: 10px;
             }
           }
         `}</style>

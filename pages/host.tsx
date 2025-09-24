@@ -449,11 +449,18 @@ export default function HostPage() {
           @media (max-width: 768px) {
             .container {
               padding: 10px;
+              box-sizing: border-box;
             }
             
             .dashboard {
               padding: 15px;
               max-height: calc(100vh - 20px);
+              margin: 0;
+              max-width: 100%;
+              box-sizing: border-box;
+              border: none;
+              outline: none;
+              -webkit-tap-highlight-color: transparent;
             }
             
             h1 {
@@ -477,6 +484,9 @@ export default function HostPage() {
             
             .player-card {
               padding: 12px;
+              border: none;
+              outline: none;
+              -webkit-tap-highlight-color: transparent;
             }
             
             .action-button {
@@ -484,6 +494,9 @@ export default function HostPage() {
               padding: 15px;
               font-size: 1.2em;
               margin: 5px 0;
+              border: none;
+              outline: none;
+              -webkit-tap-highlight-color: transparent;
             }
 
             .action-button.secondary {
@@ -492,23 +505,36 @@ export default function HostPage() {
             
             .round-info, .join-link {
               padding: 12px;
+              border: none;
+              outline: none;
             }
             
             .prompt-card {
               padding: 12px;
               font-size: 1em;
+              border: none;
+              outline: none;
+            }
+
+            .stat-card {
+              border: none;
+              outline: none;
+              -webkit-tap-highlight-color: transparent;
             }
           }
           
           @media (max-width: 480px) {
             .container {
               padding: 5px;
+              box-sizing: border-box;
             }
             
             .dashboard {
               padding: 12px;
               max-height: calc(100vh - 10px);
               border-radius: 15px;
+              max-width: 100%;
+              box-sizing: border-box;
             }
             
             h1 {
@@ -517,11 +543,16 @@ export default function HostPage() {
             
             .stat-card {
               padding: 12px;
+              border: none;
+              outline: none;
+              -webkit-tap-highlight-color: transparent;
             }
             
             .join-link code {
               font-size: 0.85em;
               padding: 6px 8px;
+              border: none;
+              outline: none;
             }
           }
         `}</style>

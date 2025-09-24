@@ -233,13 +233,70 @@ export default function JoinPage() {
             text-decoration: underline;
           }
 
-          @media (max-width: 480px) {
+          @media (max-width: 768px) {
+            .container {
+              padding: 15px;
+              box-sizing: border-box;
+            }
+
             .card {
               padding: 30px 20px;
+              margin: 0;
+              max-width: 100%;
+              border-radius: 15px;
+              box-sizing: border-box;
+              border: none;
+              outline: none;
+              -webkit-tap-highlight-color: transparent;
+            }
+
+            .name-input {
+              border: none;
+              outline: none;
+              -webkit-tap-highlight-color: transparent;
+              box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            }
+
+            .name-input:focus {
+              border: none;
+              outline: 2px solid #667eea;
+              outline-offset: 2px;
+            }
+
+            .join-button {
+              border: none;
+              outline: none;
+              -webkit-tap-highlight-color: transparent;
+            }
+
+            .count-badge {
+              border: none;
+              outline: none;
+            }
+          }
+
+          @media (max-width: 480px) {
+            .container {
+              padding: 10px;
+            }
+
+            .card {
+              padding: 25px 15px;
+              border-radius: 12px;
             }
             
             h1 {
               font-size: 2em;
+            }
+
+            .name-input {
+              padding: 12px 15px;
+              font-size: 1.1em;
+            }
+
+            .join-button {
+              padding: 12px;
+              font-size: 1.1em;
             }
           }
         `}</style>
