@@ -304,14 +304,13 @@ export default function HostPage() {
           }
 
           .players-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            display: flex;
+            flex-direction: column;
             gap: 10px;
             flex: 1;
             min-height: 0;
             width: 100%;
             max-width: 100%;
-            align-content: start;
           }
 
           .players-section.has-players .players-grid {
@@ -325,10 +324,9 @@ export default function HostPage() {
             max-height: 100%;
           }
           
-          /* Ensure proper grid behavior with many players */
+          /* Desktop vertical list behavior */
           @media (min-width: 769px) {
             .players-section.has-players .players-grid {
-              grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
               max-height: calc(100vh - 400px);
             }
           }
@@ -372,13 +370,20 @@ export default function HostPage() {
 
           .player-card {
             background: rgba(255,255,255,0.15);
-            padding: 15px;
+            padding: 15px 20px;
             border-radius: 10px;
             display: flex;
             justify-content: space-between;
             align-items: center;
             backdrop-filter: blur(10px);
             border: 1px solid rgba(255,255,255,0.2);
+            min-height: 50px;
+            flex-shrink: 0;
+            transition: background 0.3s;
+          }
+
+          .player-card:hover {
+            background: rgba(255,255,255,0.2);
           }
 
           .player-name {
@@ -529,7 +534,7 @@ export default function HostPage() {
               flex: 1;
               display: flex;
               flex-direction: column;
-              gap: 10px;
+              gap: 0;
               min-height: 0;
             }
             
@@ -595,11 +600,11 @@ export default function HostPage() {
             }
             
             .players-section {
-              flex: 2 !important;
+              flex: 1 !important;
               overflow-y: auto !important;
               overflow-x: hidden !important;
               -webkit-overflow-scrolling: touch !important;
-              margin: 10px 0 !important;
+              margin: 0 !important;
               min-height: 0 !important;
               max-height: none !important;
               display: flex !important;
