@@ -325,40 +325,59 @@ export default function HostPage() {
             min-height: 200px;
           }
           
-          /* Desktop scrollable players to buttons */
+          /* Desktop fixed card with scrollable players carousel */
           @media (min-width: 769px) {
             .container {
               height: 100vh;
               overflow: hidden;
+              display: flex;
+              align-items: center;
+              justify-content: center;
             }
             
             .dashboard {
-              height: calc(100vh - 40px);
-              max-height: calc(100vh - 40px);
+              width: 600px;
+              max-width: 90%;
+              height: auto;
+              max-height: calc(100vh - 80px);
               overflow: hidden;
               display: flex;
               flex-direction: column;
+              padding: 30px;
+              border-radius: 20px;
             }
             
             h1 {
               flex-shrink: 0;
+              margin-bottom: 20px;
             }
             
             .stats {
               flex-shrink: 0;
+              margin-bottom: 20px;
             }
             
             .players-section {
-              flex: 1 !important;
+              flex-shrink: 0;
+              height: 280px;
+              max-height: 280px;
               overflow: hidden;
               display: flex;
               flex-direction: column;
-              min-height: 0;
-              margin-bottom: 0;
+              margin-bottom: 20px;
+            }
+            
+            .players-section h2 {
+              flex-shrink: 0;
+              margin-bottom: 15px;
             }
             
             .players-section.has-players {
-              margin-bottom: 0;
+              background: rgba(255,255,255,0.15);
+              border: 1px solid rgba(255,255,255,0.2);
+              border-radius: 15px;
+              padding: 20px;
+              backdrop-filter: blur(10px);
             }
             
             .players-section.has-players .players-grid {
@@ -366,11 +385,33 @@ export default function HostPage() {
               overflow-y: auto;
               overflow-x: hidden;
               min-height: 0;
+              padding-right: 10px;
+            }
+            
+            .main-content {
+              flex-shrink: 0;
+            }
+            
+            .players-column {
+              margin-bottom: 20px;
+            }
+            
+            .round-column {
+              margin-bottom: 20px;
+            }
+            
+            .round-info, .prompt-card, .spy-info {
+              flex-shrink: 0;
+              margin-bottom: 15px;
+            }
+            
+            .round-info:last-child, .prompt-card:last-child, .spy-info:last-child {
+              margin-bottom: 0;
             }
             
             .controls {
               flex-shrink: 0;
-              margin-top: 20px;
+              margin-top: 0;
             }
           }
 
