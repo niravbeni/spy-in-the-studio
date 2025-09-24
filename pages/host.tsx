@@ -409,7 +409,7 @@ export default function HostPage() {
 
           .help-text {
             margin-top: 10px;
-            color: #666;
+            color: white;
             font-size: 0.9em;
           }
 
