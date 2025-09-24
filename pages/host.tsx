@@ -438,21 +438,26 @@ export default function HostPage() {
               padding: 10px;
               align-items: flex-start;
               padding-top: 20px;
+              overflow-y: auto;
+              overflow-x: hidden;
+              position: fixed;
+              height: 100vh;
+              height: -webkit-fill-available;
             }
             
             .dashboard {
               padding: 15px;
               max-height: none;
-              min-height: calc(100vh - 40px);
-              margin: 0;
+              min-height: auto;
+              margin: 0 0 20px 0;
               max-width: calc(100% - 20px);
               width: calc(100% - 20px);
               border: none;
               outline: none;
               -webkit-tap-highlight-color: transparent;
-              overflow-y: auto;
-              overflow-x: hidden;
-              touch-action: pan-y;
+              overflow: visible;
+              touch-action: auto;
+              position: relative;
             }
             
             h1 {
@@ -472,9 +477,10 @@ export default function HostPage() {
             
             .players-grid {
               grid-template-columns: 1fr;
-              overflow: hidden;
+              overflow: visible;
               width: 100%;
               max-width: 100%;
+              margin-bottom: 20px;
             }
             
             .player-card {
@@ -522,15 +528,23 @@ export default function HostPage() {
             .container {
               padding: 5px;
               padding-top: 15px;
+              overflow-y: auto;
+              overflow-x: hidden;
+              position: fixed;
+              height: 100vh;
+              height: -webkit-fill-available;
             }
             
             .dashboard {
               padding: 10px;
               max-height: none;
-              min-height: calc(100vh - 30px);
+              min-height: auto;
               border-radius: 15px;
               max-width: calc(100% - 10px);
               width: calc(100% - 10px);
+              margin: 0 0 20px 0;
+              overflow: visible;
+              position: relative;
             }
             
             h1 {
