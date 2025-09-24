@@ -325,7 +325,7 @@ export default function HostPage() {
             min-height: 200px;
           }
           
-          /* Desktop fixed scrollable carousel */
+          /* Desktop scrollable players to buttons */
           @media (min-width: 769px) {
             .container {
               height: 100vh;
@@ -336,25 +336,26 @@ export default function HostPage() {
               height: calc(100vh - 40px);
               max-height: calc(100vh - 40px);
               overflow: hidden;
+              display: flex;
+              flex-direction: column;
             }
             
             .players-section {
-              height: 300px;
-              max-height: 300px;
-              flex: none !important;
+              flex: 1 !important;
               overflow: hidden;
-            }
-            
-            .players-section.has-players {
-              height: 300px;
-              max-height: 300px;
+              display: flex;
+              flex-direction: column;
+              min-height: 0;
             }
             
             .players-section.has-players .players-grid {
-              height: 240px;
-              max-height: 240px;
+              flex: 1;
               overflow-y: auto;
               overflow-x: hidden;
+            }
+            
+            .controls {
+              flex-shrink: 0;
             }
           }
 
@@ -632,14 +633,14 @@ export default function HostPage() {
             
             .players-section {
               flex: 1 !important;
-              overflow-y: auto !important;
-              overflow-x: hidden !important;
+              overflow: hidden !important;
               -webkit-overflow-scrolling: touch !important;
               margin: 0 !important;
               min-height: 0 !important;
               max-height: none !important;
               display: flex !important;
               flex-direction: column !important;
+              height: 100% !important;
             }
             
             .players-grid {
@@ -648,9 +649,10 @@ export default function HostPage() {
               gap: 10px !important;
               width: 100% !important;
               padding-bottom: 10px !important;
-              overflow: visible !important;
-              flex: none !important;
-              min-height: auto !important;
+              overflow-y: auto !important;
+              overflow-x: hidden !important;
+              flex: 1 !important;
+              min-height: 0 !important;
             }
             
             .player-card {
@@ -758,14 +760,14 @@ export default function HostPage() {
             
             .players-section {
               flex: 1 !important;
-              overflow-y: auto !important;
-              overflow-x: hidden !important;
+              overflow: hidden !important;
               -webkit-overflow-scrolling: touch !important;
               margin: 0 !important;
               min-height: 0 !important;
               max-height: none !important;
               display: flex !important;
               flex-direction: column !important;
+              height: 100% !important;
             }
             
             .players-grid {
@@ -774,9 +776,10 @@ export default function HostPage() {
               gap: 6px !important;
               width: 100% !important;
               padding-bottom: 8px !important;
-              overflow: visible !important;
-              flex: none !important;
-              min-height: auto !important;
+              overflow-y: auto !important;
+              overflow-x: hidden !important;
+              flex: 1 !important;
+              min-height: 0 !important;
             }
             
             .controls {
