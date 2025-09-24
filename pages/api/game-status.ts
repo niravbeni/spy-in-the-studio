@@ -16,6 +16,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       isRoundActive: gameState.isRoundActive,
       currentPrompt: gameState.currentPrompt,
       spyId: gameState.spyId,
+      roundNumber: gameState.roundNumber || 1,
     });
   } catch (error) {
     console.error('Game status error:', error);

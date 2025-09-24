@@ -12,6 +12,7 @@ interface GameStatus {
   isRoundActive: boolean;
   currentPrompt: string | null;
   spyId: string | null;
+  roundNumber: number;
 }
 
 export default function HostPage() {
@@ -21,6 +22,7 @@ export default function HostPage() {
     isRoundActive: false,
     currentPrompt: null,
     spyId: null,
+    roundNumber: 1,
   });
   const [isStarting, setIsStarting] = useState(false);
   const [isResetting, setIsResetting] = useState(false);
@@ -156,7 +158,7 @@ export default function HostPage() {
 
           {gameStatus.isRoundActive && (
             <div className="round-info">
-              <h3>Current Round</h3>
+              <h3>Current Round: {gameStatus.roundNumber}</h3>
               <div className="prompt-card">
                 <strong>Prompt:</strong> {gameStatus.currentPrompt}
               </div>

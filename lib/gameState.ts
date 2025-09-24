@@ -11,6 +11,7 @@ export interface GameState {
   currentPromptIndex: number | null;
   spyId: string | null;
   isRoundActive: boolean;
+  roundNumber: number;
 }
 
 export const HMW_PROMPTS = [
@@ -59,6 +60,7 @@ function getMemoryState(): GameState {
       currentPromptIndex: null,
       spyId: null,
       isRoundActive: false,
+      roundNumber: 1,
     };
   }
   return global.__spy_game_state;
@@ -103,6 +105,7 @@ export async function getGameState(): Promise<GameState> {
       currentPromptIndex: null,
       spyId: null,
       isRoundActive: false,
+      roundNumber: 1,
     };
   } catch (error) {
     console.log('Supabase error, using fallback:', error);
@@ -172,6 +175,13 @@ export async function startRound(): Promise<{ prompt: string; spyId: string }> {
   gameState.currentPromptIndex = randomPromptIndex;
   gameState.spyId = selectedSpyId;
   gameState.isRoundActive = true;
+  
+  // Increment round number if this is a new round (not the first)
+  if (gameState.roundNumber) {
+    gameState.roundNumber += 1;
+  } else {
+    gameState.roundNumber = 1;
+  }
 
   await saveGameState(gameState);
 
@@ -202,6 +212,7 @@ export async function resetGame(): Promise<void> {
     currentPromptIndex: null,
     spyId: null,
     isRoundActive: false,
+    roundNumber: 1,
   };
   
   await saveGameState(newState);
