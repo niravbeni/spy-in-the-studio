@@ -325,23 +325,36 @@ export default function HostPage() {
             min-height: 200px;
           }
           
-          /* Desktop vertical list behavior */
+          /* Desktop fixed scrollable carousel */
           @media (min-width: 769px) {
+            .container {
+              height: 100vh;
+              overflow: hidden;
+            }
+            
+            .dashboard {
+              height: calc(100vh - 40px);
+              max-height: calc(100vh - 40px);
+              overflow: hidden;
+            }
+            
             .players-section {
-              height: 400px;
-              max-height: 400px;
-              flex: none;
+              height: 300px;
+              max-height: 300px;
+              flex: none !important;
+              overflow: hidden;
             }
             
             .players-section.has-players {
-              height: 400px;
-              max-height: 400px;
+              height: 300px;
+              max-height: 300px;
             }
             
             .players-section.has-players .players-grid {
-              height: 340px;
-              max-height: 340px;
+              height: 240px;
+              max-height: 240px;
               overflow-y: auto;
+              overflow-x: hidden;
             }
           }
 
@@ -570,11 +583,13 @@ export default function HostPage() {
               display: flex;
               flex-direction: column;
               min-height: 0;
+              height: 100%;
             }
             
             .main-content:not(.has-round) .players-column {
               flex: 1;
               max-width: 100%;
+              height: 100%;
             }
             
             .controls {
@@ -732,11 +747,13 @@ export default function HostPage() {
               display: flex;
               flex-direction: column;
               min-height: 0;
+              height: 100%;
             }
             
             .main-content:not(.has-round) .players-column {
               flex: 1;
               max-width: 100%;
+              height: 100%;
             }
             
             .players-section {
